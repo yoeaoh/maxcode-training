@@ -1,16 +1,18 @@
 // https://maxcode.dev/problems/pivot-index/
 
+// space O(1)
+// time  O(n)
+
 function pivotIndex(arr) {
     const totalSum = arr.reduce((acc, curr) => acc + curr, 0)
     let leftSum = 0;
-    let rightSum = totalSum;
 
     for (let i = 0; i < arr.length; i++) {
-        rightSum = rightSum - arr[i];
+        const rightSum = totalSum - arr[i] - leftSum;
 
         if (rightSum === leftSum) return i;
 
-        leftSum = arr[i] + leftSum;
+        leftSum += arr[i];
     }
 
     return -1;

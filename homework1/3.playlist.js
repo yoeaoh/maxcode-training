@@ -1,17 +1,23 @@
 // https://maxcode.dev/problems/playlist/
 
+// parseInt("15px") === 15
+
 function getSecondsFromFormattedTimeString(str) {
-    const splittedDuration = str.split(":").map(x => Number.parseInt(x));
+    const [ss, mm, hh = 0] = str.split(":").map(Number).reverse();
+    return ss + mm * 60 + hh * 3600;
 
-    if (splittedDuration.length === 2) {
-        return splittedDuration[1] + (splittedDuration[0] * 60)
-    }
+    // "HH:MM:SS"
+    // "MM:SS"
 
-    if (splittedDuration.length === 3) {
-        return splittedDuration[2] + (splittedDuration[1] * 60) + (splittedDuration[0] * 3600);
-    }
+    // if (splittedDuration.length === 2) {
+    //     return splittedDuration[1] + (splittedDuration[0] * 60)
+    // }
 
-    return splittedDuration[0]
+    // if (splittedDuration.length === 3) {
+    // return splittedDuration[2] + (splittedDuration[1] * 60) + (splittedDuration[0] * 3600);
+    // }
+
+    // return splittedDuration[0]
 }
 
 function getPaddedTimeString(timeUnit) {
@@ -19,31 +25,56 @@ function getPaddedTimeString(timeUnit) {
 }
 
 function getFormattedTimeStringFromSeconds(secondsCount) {
-    let availableSeconds = secondsCount;
-    let hours = 0;
-    let minutes = 0;
+//     let availableSeconds = secondsCount;
+    
+//     const hours = Math.floor(availableSeconds / 3600);
+//     availableSeconds -= hours * 3600;
+    
+//     const minutes = Math.floor(availableSeconds / 60);
+//     availableSeconds -= minutes * 60;
 
-    if (availableSeconds / 3600 > 0) {
-        hours = Math.floor(availableSeconds / 3600);
-        availableSeconds = availableSeconds - hours * 3600;
-    }
+    // const hh = Math.floor(secondsCount / 3600);
+    // const mm = Math.floor(secondsCount % 3600 / 60);
+    // const ss = secondsCount % 60;
 
-    if (availableSeconds / 60 > 0) {
-        minutes = Math.floor(availableSeconds / 60);
-        availableSeconds = availableSeconds - minutes * 60;
-    }
+    // const timeUnits = hh > 0 ? [hh, mm, ss] : [mm, ss];
 
-    return `${hours ? getPaddedTimeString(hours) + ":" : ""}${getPaddedTimeString(minutes) + ":"}${getPaddedTimeString(availableSeconds)}`
+    // return timeUnits
+    //     .map(timeUnit => timeUnit.toString().padStart(2, "0"))
+    //     .join(":");
+
+    // return `${hours ? getPaddedTimeString(hours) + ":" : ""}${getPaddedTimeString(minutes) + ":"}${getPaddedTimeString(availableSeconds)}`
 }
+
+// s = 0;
+// [1, 2, 3].map((x) => {
+//     x *= 2;
+//     s += x
+// })
+
+// const pair = (x, y) => [x, y]
+// pair(1, 2) !== pair(1, 2) 
+
 
 function playlistDuration(playlist) {
     const totalSeconds = playlist.reduce((acc, [_, duration]) => {
-        acc = acc + getSecondsFromFormattedTimeString(duration);
+        const [ss, mm, hh = 0] = duration.split(":").map(Number).reverse();
+        const songSeconds = ss + mm * 60 + hh * 3600
 
-        return acc;
+        return acc + songSeconds;
     }, 0)
 
-    return getFormattedTimeStringFromSeconds(totalSeconds)
+    // return getFormattedTimeStringFromSeconds(totalSeconds)
+
+    const hh = Math.floor(totalSeconds / 3600);
+    const mm = Math.floor(totalSeconds % 3600 / 60);
+    const ss = totalSeconds % 60;
+
+    const timeUnits = hh > 0 ? [hh, mm, ss] : [mm, ss];
+
+    return timeUnits
+        .map(timeUnit => timeUnit.toString().padStart(2, "0"))
+        .join(":");
 }
 
 const innuendo = [

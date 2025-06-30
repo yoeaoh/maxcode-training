@@ -1,5 +1,11 @@
 // https://maxcode.dev/problems/top-words/
 
+
+//           W === words.length      Q === query.length       L === limit
+
+//  time   O(W × Q)
+//  space  O(Q + L)
+
 function topWords(words, query, limit) {
     let currentResults = 0;
     const result = []

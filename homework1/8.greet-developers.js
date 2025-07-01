@@ -1,3 +1,5 @@
+// https://maxcode.dev/problems/greet-developers/
+
 function greetDevelopers(list) {
     return list.map(developer => ({
             ...developer,

@@ -1,25 +1,22 @@
+// https://maxcode.dev/problems/homogenous-arrays/
+
+function isHomogenous(arr) {
+    return arr.every((item) => typeof item === typeof arr[0]);
+
+    // for (const item of arr) {
+    //     if (typeof item === typeof arr[0]) {
+    //         return false;
+    //     }
+    // }
+
+    // return true;
+}
+
+// isHomogenous([1,2,3,4]) === true
+// isHomogenous([1,"aa","bb",4]) === false
+
 function filterHomogenous(arrays) {
-    return arrays.reduce((acc, curr) => {
-        if (curr.length === 0) {
-            return acc;
-        }
-
-        if (curr.length === 1) {
-            acc.push(curr);
-        }
-
-        if (curr.length > 1) {
-            for (let i = 1; i < curr.length; i++) {
-                if (typeof curr[i] !== typeof curr[i-1]) {
-                    return acc;
-                }
-            }
-
-            acc.push(curr);
-        }
-
-        return acc;
-    }, [])
+    return arrays.filter((array) => isHomogenous(array) && array.length !== 0);
 }
 
 console.log(filterHomogenous([

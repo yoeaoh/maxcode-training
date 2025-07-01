@@ -1,5 +1,7 @@
 // https://maxcode.dev/problems/equal-arrays/
 
+// https://github.com/apple-opensource/JavaScriptCore/blob/0fef5867b35d102552ed4076e69809e9c5c0cb98/builtins/ArrayPrototype.js#L257
+
 function equalArrays(arr1, arr2) {
     if (arr1.length !== arr2.length) return false;
     const length = arr1.length;

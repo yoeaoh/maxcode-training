@@ -2,15 +2,15 @@ https://maxcode.dev/courses/fp/
 https://maxcode.dev/problems/expect-to-be/
 
  # Методы массивов
- - filter
- - bifurcate
- - for-each
- - some
- - every
- - map
- - zip
- - reduce
- - sort
+ [x] filter
+ [x] bifurcate
+ [x] for-each
+ [x] some
+ [x] every
+ [x] map
+ [] zip
+ [] reduce
+ [] sort
 
  # Функции высшего порядка
  - find-integer

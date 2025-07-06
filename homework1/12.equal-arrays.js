@@ -9,13 +9,8 @@ function equalArrays(arr1, arr2) {
     const firstArrayValues = new Map();
 
     for (let i = 0; i < length; i++) {
-        const currentValue = firstArrayValues.get(arr1[i]);
-
-        if (currentValue === undefined) {
-            firstArrayValues.set(arr1[i], 0);
-        }
-
-        firstArrayValues.set(arr1[i], firstArrayValues.get(arr1[i]) + 1);
+        const currentValue = firstArrayValues.get(arr1[i]) ?? 0;
+        firstArrayValues.set(arr1[i], currentValue + 1);
     }
 
     for (let i = 0; i < length; i++) {

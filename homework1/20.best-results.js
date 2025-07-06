@@ -5,12 +5,20 @@ function sortByScore (a, b) {
 }
 
 function sortByDate (a, b) {
-    const [aDay, aMonth, aYear] = a.date.split('.');
-    const [bDay, bMonth, bYear] = b.date.split('.');
-    const dateA = new Date(`${aYear}-${aMonth}-${aDay}`).getTime();
-    const dateB = new Date(`${bYear}-${bMonth}-${bDay}`).getTime();
+    // const [aDay, aMonth, aYear] = a.date.split('.');
+    // const [bDay, bMonth, bYear] = b.date.split('.');
+    // const dateA = new Date(`${aYear}-${aMonth}-${aDay}`).getTime();
+    // const dateB = new Date(`${bYear}-${bMonth}-${bDay}`).getTime();
 
-    return dateA - dateB;
+    // return dateA - dateB;
+
+    // "2014.05.12"
+    // "2018.02.03"
+
+    const strA = a.date.split('.').join("");
+    const strB = b.date.split('.').join("");
+
+    return strA.localeCompare(strB);
 }
 
 function sortByName (a, b) {
@@ -28,6 +36,8 @@ function bestResults(attempts) {
         })
         .sort(sortByName)
 }
+
+// TODO: переписать
 
 const input = [
     {

@@ -17,18 +17,26 @@ function reduce(array, callback, initialValue) {
     return result;
 }
 
-console.log(reduce([1, 2, 3, 4], (a, b) => a + b, 0));
-// 10
 
-console.log(reduce([], (a, b) => a + b, 0));
-// 0
+console.log([1,2,3].reduce((a, b) => a + b, 0))
+console.log([1,2,3].reduce((a, b) => a + b))
 
-console.log(reduce([], (a, b) => a + b));
-// TypeError: Reduce of empty array with no initial value
 
-console.log(reduce(["a", "b", "c"], (a, b) => ({ [b]: a }), {}));
-// { "c": { "b": { "a": {} } } }
+console.log(reduce([1,2,3], (a, b) => a + b, 0))
+console.log(reduce([1,2,3], (a, b) => a + b))
 
-console.log(reduce(["a", "b", "c"], (a, b) => ({ [b]: a })));
-// { "c": { "b": "a"} }
+// console.log(reduce([1, 2, 3, 4], (a, b) => a + b, 0));
+// // 10
+
+// console.log(reduce([], (a, b) => a + b, 0));
+// // 0
+
+// console.log(reduce([], (a, b) => a + b));
+// // TypeError: Reduce of empty array with no initial value
+
+// console.log(reduce(["a", "b", "c"], (a, b) => ({ [b]: a }), {}));
+// // { "c": { "b": { "a": {} } } }
+
+// console.log(reduce(["a", "b", "c"], (a, b) => ({ [b]: a })));
+// // { "c": { "b": "a"} }
 

@@ -5,7 +5,7 @@ function sortArray(array) {
     const oddValues = []
 
     for (let i = 0; i < array.length; i++) {
-        if (array[i] % 2) {
+        if (array[i] % 2 !== 0) {
             oddIndexes.push(i);
             oddValues.push(array[i])
         }
@@ -13,7 +13,7 @@ function sortArray(array) {
 
     const sortedOddValues = oddValues.sort((a, b) => a - b)
 
-    const result = array;
+    const result = [...array];
 
     for (let i = 0; i < sortedOddValues.length; i++) {
         result[oddIndexes[i]] = sortedOddValues[i];

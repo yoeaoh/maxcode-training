@@ -11,7 +11,7 @@ function isValidBrackets(str) {
     const stack = [];
 
     for (let i = 0; i < str.length; i++) {
-        if (Object.keys(bracketPairs).includes(str[i])) {
+        if (str[i] in bracketPairs) { /// или Object.hasOwn
             stack.push(str[i]);
             continue;
         }

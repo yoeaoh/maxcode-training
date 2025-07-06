@@ -1,8 +1,8 @@
 // https://maxcode.dev/problems/every/
 
-function every(array, callback) {
+function every(array, predicate) {
     for (let i = 0; i < array.length; i++) {
-        if (callback(array[i], i, array) === false) {
+        if (!predicate(array[i], i, array)) {
             return false;
         }
     }

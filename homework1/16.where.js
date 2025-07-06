@@ -1,16 +1,10 @@
 // https://maxcode.dev/problems/where/
 
 function filterByShape(arr, where) {
-    const filterWhere = Object.keys(where);
-    console.log('keys', filterWhere)
+    const keys = Object.keys(where);
+    console.log('keys', keys)
 
-    return arr.filter((item) => {
-        for (let i = 0; i < filterWhere.length; i++) {
-            if (item[filterWhere[i]] !== where[filterWhere[i]]) return false;
-        }
-
-        return true;
-    })
+    return arr.filter((obj) => keys.every((key) => obj[key] === where[key]));
 }
 
 const arr = [

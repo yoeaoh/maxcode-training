@@ -2,22 +2,28 @@
 
 function groupAnagrams(words) {
     return Object.values(Object.groupBy(words, (item) => {
-        return item.split("").sort((a, b) => a.localeCompare(b))
-            //.join('');
+        return item.split("").sort().join('');
     }))
 }
+// TODO;
+// rewrite without groupby
 
-console.log(groupAnagrams([
-    "tsar",
-    "rat",
-    "tar",
-    "star",
-    "tars",
-    "cheese",
-]));
+const a = [1, 2];
 
-const expected = [
-    ["tsar", "star", "tars"],
-    ["rat", "tar"],
-    ["cheese"],
-];
+// a.join = () => "hello";
+// console.log(a.toString())
+
+// console.log(groupAnagrams([
+//     "tsar",
+//     "rat",
+//     "tar",
+//     "star",
+//     "tars",
+//     "cheese",
+// ]));
+
+// const expected = [
+//     ["tsar", "star", "tars"],
+//     ["rat", "tar"],
+//     ["cheese"],
+// ];

@@ -8,7 +8,7 @@ https://maxcode.dev/problems/expect-to-be/
  [x] some
  [x] every
  [x] map
- [] zip
+ [x] zip
  [] reduce
  [] sort
 

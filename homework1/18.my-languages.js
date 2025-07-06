@@ -1,37 +1,48 @@
 // https://maxcode.dev/problems/my-languages/
 
 function myLanguages(results) {
-    const validLangs = Object
-        .entries(results)
+    const old = Object.entries(results)
         .filter(([_, value]) => value >= 60)
-        // .sort(([_A, valueA], [_B, valueB]) => valueB - valueA)
-        // .map(([name, _]) => name)
+        // .sort(([keyA, valueA], [keyB, valueB]) => {
+        //     if (valueB !== valueA) {
+        //         return valueB - valueA
+        //     }
+        //     return keyA.localeCompare(keyB);
+        // })
+        .sort(([keyA, valueA], [keyB, valueB]) => valueB - valueA || keyA.localeCompare(keyB))
+        // .sort(([keyA, valueA], [keyB, valueB]) => keyA.localeCompare(keyB))
+        // .sort(([keyA, valueA], [keyB, valueB]) => valueB - valueA)
+        .map(([name]) => name)
 
-    return Object
-        .entries(Object.groupBy(validLangs, ([lang, value]) => value))
-        .sort(([scoreA, languagesA], [scoreB, languagesB]) => scoreB - scoreA)
-        .map(([score, languages]) => languages.sort(([nameA, scoreA], [nameB, scoreB]) => nameA.localeCompare(nameB)))
-        .flat()
-        .map(([lang, value]) => lang)
+    return Object.keys(results)
+        .filter(key => results[key] >= 60)
+        .sort((a, b) => results[b] - results[a] || a.localeCompare(b))
+
+    // return Object
+    //     .entries(Object.groupBy(validLangs, ([lang, value]) => value))
+    //     .sort(([scoreA, languagesA], [scoreB, languagesB]) => scoreB - scoreA)
+    //     .map(([score, languages]) => languages.sort(([nameA, scoreA], [nameB, scoreB]) => nameA.localeCompare(nameB)))
+    //     .flat()
+    //     .map(([lang, value]) => lang)
 }
 
 console.log(myLanguages({
     "Java": 72,
     "Ruby": 80,
-    "ads": 65,
-    "dsa": 61,
+    "dsa": 71,
+    "ads": 71,
     "123": 63,
     "1234": 70,
-})); // ["Ruby", "Python"]
+})); 
 
-console.log(myLanguages({
-    "Hindi": 60,
-    "Dutch" : 60,
-    "Greek": 60,
-})); // ["Dutch", "Greek", "Hindi"]
+// console.log(myLanguages({
+//     "Hindi": 60,
+//     "Dutch" : 60,
+//     "Greek": 60,
+// })); // ["Dutch", "Greek", "Hindi"]
 
-console.log(myLanguages({
-    "C++": 50,
-    "ASM": 10,
-    "Haskell": 20,
-})); // []
+// console.log(myLanguages({
+//     "C++": 50,
+//     "ASM": 10,
+//     "Haskell": 20,
+// })); // []

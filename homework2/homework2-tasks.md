@@ -2,18 +2,18 @@ https://maxcode.dev/courses/fp/
 https://maxcode.dev/problems/expect-to-be/
 
 # Методы массивов
- [x] filter
- [x] bifurcate
- [x] for-each
- [x] some
- [x] every
- [x] map
- [x] zip
- [x] reduce
- [] sort — пока оставил на потом
+ [x] 0.filter
+ [x] 1.bifurcate
+ [x] 2.for-each
+ [x] 3.some
+ [x] 4.every
+ [x] 5.map
+ [x] 6.zip
+ [x] 7.reduce
+ [] 8.sort — пока оставил на потом
 
 # Функции высшего порядка
- [x] find-integer
+ [x] 9.find-integer
  [] plural
  [] brute-force-password
 
@@ -24,14 +24,14 @@ https://maxcode.dev/problems/expect-to-be/
  [] super-power-frequency
 
 # Генераторы значений
- [x] repeater
- [] fibonacci-generator
+ [x] 10.repeater
+ [x] 11.fibonacci-generator
  [] prime-generator
 
 # Функции-декораторы
- [] multi-predicate
+ [x] 12.multi-predicate
  [] compose
- [] once
+ [x] 13.once
  [] memo
  [] spy
 

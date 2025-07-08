@@ -9,32 +9,32 @@ https://maxcode.dev/problems/expect-to-be/
  [x] every
  [x] map
  [x] zip
- [] reduce
- [] sort
+ [x] reduce
+ [] sort — пока оставил на потом
 
  # Функции высшего порядка
- - find-integer
- - plural
- - brute-force-password
- - Группировка
- - group-by-equality
- - map-group-by
- - map-group-by-advanced
- - super-power-frequency
+ [x] find-integer
+ [] plural
+ [] brute-force-password
+ [] Группировка
+ [] group-by-equality
+ [] map-group-by
+ [] map-group-by-advanced
+ [] super-power-frequency
 
  # Генераторы значений
- - repeater
- - fibonacci-generator
- - prime-generator
+ [] repeater
+ [] fibonacci-generator
+ [] prime-generator
 
  # Функции-декораторы
- - multi-predicate
- - compose
- - once
- - memo
- - spy
+ [] multi-predicate
+ [] compose
+ [] once
+ [] memo
+ [] spy
 
  # Карирование
- - select
- - sum
- - currying
+ [] select
+ [] sum
+ [] currying

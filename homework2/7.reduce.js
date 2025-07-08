@@ -6,21 +6,20 @@ function reduce(array, callback, initialValue) {
         // throw new TypeError("Reduce of empty array with no initial value");
     }
 
-    const startingValue = arguments.length === 3 ? initialValue : array[0];
+    const hasInitialValue = arguments.length === 3;
 
-    let result = startingValue;
+    let result = hasInitialValue ? initialValue : array[0];
+    const startingPoint = hasInitialValue ? 0 : 1;
 
-    for (let i = 0; i < array.length; i++) {
+    for (let i = startingPoint; i < array.length; i++) {
         result = callback(result, array[i], i, array)
     }
 
     return result;
 }
 
-
 console.log([1,2,3].reduce((a, b) => a + b, 0))
 console.log([1,2,3].reduce((a, b) => a + b))
-
 
 console.log(reduce([1,2,3], (a, b) => a + b, 0))
 console.log(reduce([1,2,3], (a, b) => a + b))

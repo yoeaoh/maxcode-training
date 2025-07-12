@@ -18,8 +18,8 @@ https://maxcode.dev/problems/expect-to-be/
  [] brute-force-password
 
 # Группировка
- [] group-by-equality
- [] map-group-by
+ [attempted] 14.group-by-equality
+ [x] 15.map-group-by
  [] map-group-by-advanced
  [] super-power-frequency
 

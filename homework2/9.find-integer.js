@@ -1,7 +1,7 @@
 // https://maxcode.dev/problems/find-integer/
 
 function findInteger(...predicates) {
-    let candidate = 0;
+    let candidate = 1;
 
     // Я хотел написать более оптимизированную версию, когда
     // мы проверяем сначала в цикле первый предикат, и, пока он
@@ -9,9 +9,9 @@ function findInteger(...predicates) {
 
     // но не получилось чёт.. сделал обычную
 
-    do {
+     while (!predicates.every(predicate => predicate(candidate))) {
         candidate++;
-    } while (predicates.every(predicate => predicate(candidate)) === false)
+     }
 
     return candidate
 }

@@ -4,11 +4,16 @@ function repeatGenerator(str) {
     let index = 0;
 
     return function() {
+        const result = str[index];
+
+        index++;
         if (index === str.length) {
             index = 0;
         }
+        // index %= str.length
 
-        return str[index++];
+
+        return result
     }
 }
 

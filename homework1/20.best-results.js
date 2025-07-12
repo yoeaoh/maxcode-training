@@ -25,15 +25,38 @@ function sortByName (a, b) {
     return a.name.localeCompare(b.name)
 }
 
+function bestOfAttempts (a, b) {
+    if (b.score !== a.score) {
+        return b.score > a.score ? b : a;
+    }
+
+    const strA = a.date.split('.').join("");
+    const strB = b.date.split('.').join("");
+
+    return strB > strA ? b : a;
+}
+
+function sortAsd (arr) {
+    // let bestAndEarliest = arr[0];
+
+    // for (let i = 1; i < arr.length; i++) {
+    //     bestAndEarliest = bestOfAttempts(bestAndEarliest, arr[i])
+    // }
+
+    // return bestAndEarliest;
+
+    return arr.reduce(bestOfAttempts)
+}
+
 function bestResults(attempts) {
-    return Object
-        .entries(Object.groupBy(attempts, ({name}) => name))
-        .map(([_, attempts]) => {
-            const attemptsBestScore = attempts.sort(sortByScore)[0].score;
-            return attempts
-                .filter((attempt) => attempt.score === attemptsBestScore)
-                .sort(sortByDate)[0];
-        })
+    // .map(([_, attempts]) => {
+    //     const attemptsBestScore = attempts.sort(sortByScore)[0].score;
+    //     return attempts
+    //         .filter((attempt) => attempt.score === attemptsBestScore)
+    //         .sort(sortByDate)[0];
+    // })
+    return Object.entries(Object.groupBy(attempts, ({name}) => name))
+        .map(([_, attempts]) => attempts.reduce(bestOfAttempts))
         .sort(sortByName)
 }
 

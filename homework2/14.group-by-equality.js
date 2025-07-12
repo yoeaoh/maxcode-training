@@ -5,6 +5,7 @@ function group(arr, isEqual) {
     const usedIndexes = new Set()
 
     // TODO: try to save indexes instead of values;
+    // O(n^2)
 
     for (let i = 0; i < arr.length; i++) {
         if (usedIndexes.has(i)) {
@@ -46,26 +47,26 @@ const expectedResult = [
   ["over", "lazy"],
 ]
 
-// const arr = [
-//   { x: 1, y: 2 },
-//   { x: 4, y: 5 },
-//   { x: 1, y: 3 },
-//   { x: 4, y: 2 },
-//   { x: 7, y: 3 },
-// ];
+const arr = [
+  { x: 1, y: 2 },
+  { x: 4, y: 5 },
+  { x: 1, y: 3 },
+  { x: 4, y: 2 },
+  { x: 7, y: 3 },
+];
 
-// console.log(group(arr, (a, b) => a.x === b.x));
+console.log(group(arr, (a, b) => a.x === b.x));
 
-// const expectedResult1 = [
-//   [{ x: 1, y: 2 }, { x: 1, y: 3 }],
-//   [{ x: 4, y: 5 }, { x: 4, y: 2 }],
-//   [{ x: 7, y: 3 }],
-// ]
+const expectedResult1 = [
+  [{ x: 1, y: 2 }, { x: 1, y: 3 }],
+  [{ x: 4, y: 5 }, { x: 4, y: 2 }],
+  [{ x: 7, y: 3 }],
+]
 
-// console.log(group(arr, (a, b) => a.y === b.y));
+console.log(group(arr, (a, b) => a.y === b.y));
 
-// const expectedResult2 = [
-//   [{ x: 1, y: 2 }, { x: 4, y: 2 }],
-//   [{ x: 4, y: 5 }],
-//   [{ x: 1, y: 3 }, { x: 7, y: 3 }],
-// ]
+const expectedResult2 = [
+  [{ x: 1, y: 2 }, { x: 4, y: 2 }],
+  [{ x: 4, y: 5 }],
+  [{ x: 1, y: 3 }, { x: 7, y: 3 }],
+]

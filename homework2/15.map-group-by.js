@@ -1,5 +1,7 @@
 // https://maxcode.dev/problems/map-group-by/
 
+// https://github.com/tc39/proposal-upsert
+
 function groupBy(iterable, cb) {
     const result = new Map();
     let index = 0;
@@ -9,16 +11,21 @@ function groupBy(iterable, cb) {
         index++;
 
         if (!result.has(group)) {
-            result.set(group, [item]);
-            continue;
+            result.set(group, []);
         }
+        
+        result.get(group).push(item);
+        
+        // IN FUTURE
+        // result.getOrInsert(group, []).push(item);
 
-        if (result.has(group)) {
-            const groupItems = result.get(group);
-            groupItems.push(item);
+        // --- 
 
-            result.set(group, groupItems);
-        }
+        // if (result.has(group)) {
+            // const groupItems = result.get(group);
+            // groupItems.push(item);
+            // result.set(group, groupItems);
+        // }
     }
 
     return result;

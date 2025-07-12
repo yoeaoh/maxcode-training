@@ -1,21 +1,19 @@
 // https://maxcode.dev/problems/bifurcate/
 
 function bifurcate(array, predicate) {
-  const array1 = [];
-  const array2 = [];
+  const matched = [];
+  const unmatched = [];
 
   for (let i = 0; i < array.length; i++) {
-    if (predicate(array[i], i, array) === true) {
-      array1.push(array[i])
+    if (predicate(array[i], i, array)) {
+      matched.push(array[i])
       continue;
     } 
     
-    array2.push(array[i])
+    unmatched.push(array[i])
   }
 
-  const result = [array1, array2]
-
-  return result;
+  return [matched, unmatched]
 }
 
 console.log(bifurcate([1, "a", 3, "b", "c"], x => typeof x === "string"));

@@ -3,14 +3,14 @@
 function once(fn) {
     let isTriggered = false;
 
-    return function (...arguments) {
+    return function (...args) {
         if (isTriggered) {
             return
         }
 
         isTriggered = true;
 
-        return fn(...arguments)
+        return fn(...args)
     }
 }
 

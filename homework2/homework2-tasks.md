@@ -10,7 +10,7 @@ https://maxcode.dev/problems/expect-to-be/
  [x] 5.map
  [x] 6.zip
  [x] 7.reduce
- [] 8.sort — пока оставил на потом
+ [attempted] 8.sort — пока оставил на потом
 
 # Функции высшего порядка
  [x] 9.find-integer
@@ -30,7 +30,7 @@ https://maxcode.dev/problems/expect-to-be/
 
 # Функции-декораторы
  [x] 12.multi-predicate
- [] compose
+ [attempted] 16.compose
  [x] 13.once
  [] memo
  [] spy

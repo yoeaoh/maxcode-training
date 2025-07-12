@@ -4,7 +4,11 @@ function sort(arr, compareFn) {
 
 }
 
+// https://www.youtube.com/playlist?list=PLjdNQx7uURWzJEZQ5FxkB9DGB3YuCr1Xk
+
 const arr1 = ["zer", "abc", "a", "xxyyzz", "bz"];
+//           ["a", "abc", "zer", "xxyyzz", "bz"];
+//           ["a", "bz", "zer", "xxyyzz", "abc"];
 
 sort(arr1);
 console.log(arr1); // ["a", "abc", "bz", "xxyyzz", "zer"]

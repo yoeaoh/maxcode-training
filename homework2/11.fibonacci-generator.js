@@ -1,31 +1,25 @@
 // https://maxcode.dev/problems/fibonacci-generator/
 
 function fibonacciGenerator() {
-    let contador = 0;
-    // захотел назвать uno и dos, и пришлось всё остальное
-    // на испанский переводить..
     let uno = 0
     let dos = 1
 
     return function() {
-        if (contador === 0) {
-            contador++;
-            return uno;
-        }
+        const resultado = uno
+        
+        ;[uno, dos] = [dos, uno + dos]
 
-        if (contador === 1) {
-            contador++;
-            return dos;
-        }
-
-        const resultado = uno + dos;
-
-        uno = dos;
-        dos = resultado;
-
-        return resultado;
+        return resultado
     }
 }
+
+// iife
+
+// console.log(123)
+
+// ;(function() {
+
+// }());
 
 const gen = fibonacciGenerator();
 

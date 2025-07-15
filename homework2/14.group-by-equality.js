@@ -1,36 +1,32 @@
 // https://maxcode.dev/problems/group-by-equality/
 
 function group(arr, isEqual) {
-    const resultMap = {}
-    const usedIndexes = new Set()
-
-    // TODO: try to save indexes instead of values;
-    // O(n^2)
+    const result = []
+    const usedIndexes = new Set();
 
     for (let i = 0; i < arr.length; i++) {
         if (usedIndexes.has(i)) {
             continue
-        }
+        };
+
+        const equalToCurrent = [];
 
         for (let j = 0; j < arr.length; j++) {
-            if (i === j) {
+            if (usedIndexes.has(j)) {
                 continue
-            }
-            
+            };
+
             if (isEqual(arr[i], arr[j])) {
-                if (!Object.hasOwn(resultMap, arr[i])) {
-                    resultMap[arr[i]] = [arr[i]];
-                }
-
-                usedIndexes.add(i);
-                usedIndexes.add(j);
-
-                resultMap[arr[i]].push(arr[j]);
+                equalToCurrent.push(arr[j]);
+                usedIndexes.add(i)
+                usedIndexes.add(j)
             }
         }
+
+        result.push(equalToCurrent);
     }
 
-    return Object.values(resultMap);
+    return result;
 }
 
 const words = [

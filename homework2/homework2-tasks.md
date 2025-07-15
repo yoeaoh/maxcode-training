@@ -30,9 +30,9 @@ https://maxcode.dev/problems/expect-to-be/
 
 # Функции-декораторы
  [x] 12.multi-predicate
- [attempted] 16.compose
+ [x] 16.compose
  [x] 13.once
- [] memo
+ [x] 19.memo
  [] spy
 
 # Карирование

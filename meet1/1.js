@@ -123,38 +123,38 @@ function memo(fn) {
     }
 }
 
-
-function double(x) {
-  // холостой цикл на миллиард шагов
-  // занимает примерно секунду
-  for(let i = 0; i < 1e9; i++);
-  return x * 2;
-}
-
-console.time("10");
-console.log(double(10)); 20
-console.timeEnd("10"); // ≈ 1s
-
-const mDouble = memo(double);
-
-console.time("A");
-console.log(mDouble(1)) // 2
-console.timeEnd("A"); // ≈ 1s
-
-console.time("B");
-console.log(mDouble(1)) // 2
-console.timeEnd("B"); // ≈ 0.001s
-
-console.time("C");
-console.log(mDouble(3)) // 6
-console.timeEnd("C"); // ≈ 1s
-
-console.time("D");
-console.log(mDouble(1)) // 2
-console.timeEnd("D"); // ≈ 0.001s
-
-console.time("E");
-console.log(mDouble(3)) // 6
-console.timeEnd("E"); // ≈ 0.001s
+//
+// function double(x) {
+//   // холостой цикл на миллиард шагов
+//   // занимает примерно секунду
+//   for(let i = 0; i < 1e9; i++);
+//   return x * 2;
+// }
+//
+// console.time("10");
+// console.log(double(10)); 20
+// console.timeEnd("10"); // ≈ 1s
+//
+// const mDouble = memo(double);
+//
+// console.time("A");
+// console.log(mDouble(1)) // 2
+// console.timeEnd("A"); // ≈ 1s
+//
+// console.time("B");
+// console.log(mDouble(1)) // 2
+// console.timeEnd("B"); // ≈ 0.001s
+//
+// console.time("C");
+// console.log(mDouble(3)) // 6
+// console.timeEnd("C"); // ≈ 1s
+//
+// console.time("D");
+// console.log(mDouble(1)) // 2
+// console.timeEnd("D"); // ≈ 0.001s
+//
+// console.time("E");
+// console.log(mDouble(3)) // 6
+// console.timeEnd("E"); // ≈ 0.001s
 
 // https://maxcode.dev/problems-compilation/?ids=top-words%7Eshortest-word%7Eplaylist%7Epivot-index%7Eonly-digits%7Ehomogenous-arrays%7Egreet-developers%7Efind-developers%7Estring-template%7Ecsv-parser%7Eis-anagram%7Eequal-arrays%7Enon-unique-numbers%7Ecompare-objects%7Ewhere%7Egroup-anagrams%7Emy-languages%7Esort-the-odd%7Ebest-results%7Evalid-brackets

@@ -14,7 +14,7 @@ https://maxcode.dev/problems/expect-to-be/
 
 # Функции высшего порядка
  [x] 9.find-integer
- [] plural
+ [x] 17.plural
  [] brute-force-password
 
 # Группировка

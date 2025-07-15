@@ -10,7 +10,7 @@ https://maxcode.dev/problems/expect-to-be/
  [x] 5.map
  [x] 6.zip
  [x] 7.reduce
- [attempted] 8.sort — пока оставил на потом
+ [x] 8.sort
 
 # Функции высшего порядка
  [x] 9.find-integer

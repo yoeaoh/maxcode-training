@@ -33,7 +33,7 @@ https://maxcode.dev/problems/expect-to-be/
  [x] 16.compose
  [x] 13.once
  [x] 19.memo
- [] spy
+ [x] spy
 
 # Карирование
  [] select

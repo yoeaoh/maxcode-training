@@ -20,7 +20,7 @@ https://maxcode.dev/problems/expect-to-be/
 # Группировка
  [x] 14.group-by-equality
  [x] 15.map-group-by
- [] map-group-by-advanced
+ [x] 18.map-group-by-advanced
  [] super-power-frequency
 
 # Генераторы значений

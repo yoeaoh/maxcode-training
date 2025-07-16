@@ -33,9 +33,9 @@ https://maxcode.dev/problems/expect-to-be/
  [x] 16.compose
  [x] 13.once
  [x] 19.memo
- [x] spy
+ [x] 20.spy
 
 # Карирование
- [] select
+ [x] 21.select
  [] sum
  [] currying

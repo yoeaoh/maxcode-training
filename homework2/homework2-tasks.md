@@ -37,5 +37,5 @@ https://maxcode.dev/problems/expect-to-be/
 
 # Карирование
  [x] 21.select
- [] sum
+ [attempted] sum
  [] currying

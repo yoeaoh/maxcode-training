@@ -28,6 +28,13 @@
  - [x] 11. [fibonacci-generator](/homework2/11.fibonacci-generator.js)
  - [ ] [prime-generator]()
 
+ <!--  8 < 15 -->
+<!--  10 < 12 -->
+<!--  12 < 10 -->
+ <!-- d  <=  n / d -->
+ <!-- d² <=  n -->
+ <!-- d  <=  ✓n -->
+
 ## Функции-декораторы
  - [x] 12. [multi-predicate](/homework2/12.multi-predicate.js)
  - [x] 16. [compose](/homework2/16.compose.js)
@@ -38,7 +45,7 @@
 ## Карирование
  - [x] 21. [select](/homework2/21.select.js)
  - [attempted] 22. [sum](/homework2/22.sum.js)
- - [ ] [currying]()
+ - [ ] 23. [currying](/homework2/)
 
 ## Unit-тесты
  - [ ] [expect-to-be](https://maxcode.dev/problems/expect-to-be/)

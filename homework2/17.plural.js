@@ -1,7 +1,6 @@
 // https://maxcode.dev/problems/plural/
 
-function plural(forms) {
-    const [one, few, many] = forms;
+function plural([one, few, many]) {
 
     return function(count) {
         if (count === 1) return one;

@@ -8,7 +8,7 @@ function spy(fn) {
     const spyFunc = function(...args) {
         const result = fn(...args);
 
-        calls = calls + 1;
+        calls += 1
         args.forEach(arg => usedArguments.add(arg));
         returnedValues.add(result);
 

@@ -49,7 +49,10 @@ console.log(profession2totalIncome);
 const profession2names = groupBy(
     employees,
     employee => employee.profession,
-    (acc, employee) => [...acc, employee.name],
+    (acc, employee) => {
+        acc.push(employee.name);
+        return acc;
+    },
     () => [],
 );
 

@@ -10,7 +10,7 @@
  - [ ] [6.ids-provider](6.ids-provider.js)
 
 ## Дескрипторы свойств
- - [ ] [7.counter](7.counter.js)
+ - [x] [7.counter](7.counter.js)
  - [ ] [8.fullname](8.fullname.js)
 
 ## Proto

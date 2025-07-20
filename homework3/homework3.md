@@ -11,7 +11,8 @@
 
 ## Дескрипторы свойств
  - [x] [7.counter](7.counter.js)
- - [ ] [8.fullname](8.fullname.js)
+ - [x] [8.fullname – function](8.fullname.js)
+ - [x] [8.1.fullname — class](8.1.fullname.js)
 
 ## Proto
  - [ ] [9.object-group-by](9.object-group-by.js)

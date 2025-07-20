@@ -1,10 +1,14 @@
 // https://maxcode.dev/problems/currying/
 
 function curry(fn, ...args) {
+    // Если аргументов достаточно, или больше,
+    // тогда возвращаем результат выполнения функции
     if (fn.length <= args.length) {
       return fn(...args);
     }
-    
+
+    // Если аргументов недостаточно, то возвращаем функцию
+    // до тех пор, пока не передадут достаточно
     return function(...nextArgs) {
         return curry(fn, ...args, ...nextArgs)
     }

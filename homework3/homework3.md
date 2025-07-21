@@ -16,7 +16,7 @@
 
 ## Proto
  - [x] [9.object-group-by](9.object-group-by.js)
- - [ ] [10.object-create](10.object-create.js)
+ - [x] [10.object-create](10.object-create.js)
 
 ## Расширяем прототип
  - [ ] [11.object-get](11.object-get.js)

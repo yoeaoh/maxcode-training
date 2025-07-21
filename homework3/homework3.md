@@ -15,7 +15,7 @@
  - [x] [8.1.fullname — class](8.1.fullname.js)
 
 ## Proto
- - [ ] [9.object-group-by](9.object-group-by.js)
+ - [x] [9.object-group-by](9.object-group-by.js)
  - [ ] [10.object-create](10.object-create.js)
 
 ## Расширяем прототип

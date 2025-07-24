@@ -19,7 +19,7 @@
  - [x] [10.object-create](10.object-create.js)
 
 ## Расширяем прототип
- - [ ] [11.object-get](11.object-get.js)
+ - [x] [11.object-get](11.object-get.js)
  - [ ] [12.object-set](12.object-set.js)
  - [ ] [13.array-map](13.array-map.js)
  - [ ] [14.pipe](14.pipe.js)

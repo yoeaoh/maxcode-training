@@ -25,7 +25,7 @@
  - [x] [14.pipe](14.pipe.js)
 
 ## This
- - [ ] [15.nouveau](15.nouveau.js)
+ - [x] [15.nouveau](15.nouveau.js)
  - [ ] [16.call](16.call.js)
  - [ ] [17.bind](17.bind.js)
  - [ ] [18.arrow-function](18.arrow-function.js)

@@ -8,6 +8,7 @@ function nouveau(constructorFn, ...args) {
 
     const result = constructorFn.apply(newObject, args);
 
+    // Проверка на примитив
     if (result === Object(result)) {
         return result;
     }

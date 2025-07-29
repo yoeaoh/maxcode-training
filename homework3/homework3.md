@@ -21,7 +21,7 @@
 ## Расширяем прототип
  - [x] [11.object-get](11.object-get.js)
  - [x] [12.object-set](12.object-set.js)
- - [attempted] [13.array-map](13.array-map.js)
+ - [x] [13.array-map](13.array-map.js)
  - [attempted] [14.pipe](14.pipe.js)
 
 ## This

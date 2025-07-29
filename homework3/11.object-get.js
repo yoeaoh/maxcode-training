@@ -4,17 +4,15 @@ Object.prototype.get = function(complexKey) {
     const keys = complexKey.split('.');
     let currentObject = this;
 
-    for (let i = 0; i < keys.length; i++) {
-        if (i === keys.length - 1) {
-            return currentObject[keys[i]];
-        }
-
-        if (currentObject?.[keys[i]] === undefined) {
+    for (const key of keys) {
+        if (currentObject === undefined) {
             return undefined
         }
-
-        currentObject = currentObject[keys[i]];
+        
+        currentObject = currentObject[key];
     }
+    
+    return currentObject;
 };
 
 const obj = {

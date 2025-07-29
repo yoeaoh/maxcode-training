@@ -3,12 +3,21 @@
 // Получилось наоборот, doublc => cube => inc
 // А надо inc => cube => double
 
+// Function.prototype.pipe = function (fn) {
+//     const context = this;
+//     return function (value) {
+//         return context(fn(value));
+//     }
+// };
+
 Function.prototype.pipe = function (fn) {
-    const context = this;
-    return function (test) {
-        return context(fn(test));
-    }
-};
+    // let context = this;
+
+    // return function (arg) {
+    //     context = fn;
+    //     console.log(context);
+    // }
+}
 
 const double = x => x * 2;
 const cube = x => x ** 3;

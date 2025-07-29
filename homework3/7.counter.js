@@ -1,14 +1,15 @@
 // https://maxcode.dev/problems/counter/
 
 function createCounter() {
+    let _count = 0;
+
     return {
-        _count: 0,
         get count() {
-            const currentCount = this._count;
-            this._count = currentCount + 1;
+            const currentCount = _count;
+            _count += + 1;
             return currentCount;
         },
-        set count(_) {}
+        // set count(_) {}
     };
 }
 

@@ -1,25 +1,33 @@
 // https://maxcode.dev/problems/object-set/
 
+// Object.prototype.set = function(keysString, value) {
+//     const keys = keysString.split('.');
+
+//     let currentObject = this;
+
+//     for (let i = 0; i < keys.length - 1; i++) {
+//         currentObject[keys[i]] ??= {};
+//         currentObject = currentObject[keys[i]];
+//     }
+    
+//     currentObject[keys.at(-1)] = value;
+
+//     // this[keys[0]][keys[1]][keys[2]] = value;
+// };
+
 Object.prototype.set = function(keysString, value) {
-    const keys = keysString.split('.');
-    const lastIndex = keys.length - 1;
+    const [currentKey, ...keys] = keysString.split('.');
 
-    let currentObject = this;
-
-    for (let i = 0; i < keys.length; i++) {
-        if (i === lastIndex) {
-            currentObject[keys[i]] = value;
-        }
-
-        if (!Object.hasOwn(currentObject, keys[i])) {
-            currentObject[keys[i]] = {};
-        }
-
-        currentObject = currentObject[keys[i]];
+    if (keys.length === 0) {
+        this[currentKey] = value;
+        return;
     }
 
-    // this[keys[0]][keys[1]][keys[2]] = value;
+    const nextKeys = keys.join('.');
+    this.set(nextKeys, value);
 };
+
+
 
 const obj1 = {
     a: {

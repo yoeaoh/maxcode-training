@@ -1,50 +1,48 @@
 // https://maxcode.dev/problems/fullname/
 
 function Person(firstName, lastName) {
-    this._firstName = firstName;
-    this._lastName = lastName;
-    this._fullName = `${this._firstName} ${this._lastName}`
+    this.firstName = firstName;
+    this.lastName = lastName;
+}
 
-    Object.defineProperty(this, "firstName", {
-        get() {
-            return this._firstName;
-        },
-        set(newFirstName) {
-            this._firstName = newFirstName;
-            this._fullName = `${this.firstName} ${this.lastName}`;
-            return this._firstName;
-        }
-    })
+Object.defineProperty(Person.prototype, "fullName", {
+    get() {
+        return `${this.firstName} ${this.lastName}`;
+    },
+    set(newFullName) {
+        [this.firstName, this.lastName] = newFullName.split(' ');
+    }
+})
 
-    Object.defineProperty(this, "lastName", {
-        get() {
-            return this._lastName;
-        },
-        set(newLastName) {
-            this._lastName = newLastName;
-            this._fullName = `${this.firstName} ${this.lastName}`;
-            return this._lastName;
-        }
-    })
 
-    Object.defineProperty(this, "fullName", {
-        get() {
-            return this._fullName;
-        },
-        set(newFullName) {
-            const [newFirstName, newLastName] = newFullName.split(' ');
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
 
-            this._firstName = newFirstName;
-            this._lastName = newLastName;
-            this._fullName = newFullName;
+        this.xxx4 = 123
+    }
 
-            return this.fullName;
-        }
-    })
+    xxx1 = function() {}
+    xxx2 = () => {}
+    xxx3 = 123
+
+    get fullName() {
+        return `${this.firstName} ${this.lastName}`;
+    }
+
+    set fullName(newFullName) {
+        [this.firstName, this.lastName] = newFullName.split(' ');
+    }
 }
 
 
 const p = new Person("Naomi", "Wang")
+const p2 = new Person("Naomi", "Wang")
+
+
+p.hello();
+p.fullName
 
 console.log(p.firstName) //  "Naomi"
 console.log(p.lastName)  //  "Wang"

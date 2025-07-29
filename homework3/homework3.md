@@ -22,7 +22,7 @@
  - [x] [11.object-get](11.object-get.js)
  - [x] [12.object-set](12.object-set.js)
  - [x] [13.array-map](13.array-map.js)
- - [attempted] [14.pipe](14.pipe.js)
+ - [x] [14.pipe](14.pipe.js)
 
 ## This
  - [ ] [15.nouveau](15.nouveau.js)

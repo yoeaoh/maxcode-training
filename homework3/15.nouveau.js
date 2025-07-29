@@ -1,7 +1,18 @@
 // https://maxcode.dev/problems/nouveau/
 
-function nouveau() {
+function nouveau(constructorFn, ...args) {
+    const newObject = Object.create(null);
+    if (typeof constructorFn.prototype === 'object') {
+        Object.setPrototypeOf(newObject, constructorFn.prototype);
+    }
 
+    const result = constructorFn.apply(newObject, args);
+
+    if (result === Object(result)) {
+        return result;
+    }
+
+    return newObject;
 }
 
 function Person(name, age) {

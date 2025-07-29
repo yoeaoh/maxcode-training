@@ -1,16 +1,18 @@
 // https://maxcode.dev/problems/object-create/
 
 function objectCreate(prototype) {
-    // const newObject = {};
-    // // Object.setPrototypeOf(newObject, prototype);
+    const newObject = {};
+    Object.setPrototypeOf(newObject, prototype);
+    // // Альтернативный, устаревший вариант
     // newObject.__proto__ = prototype;
 
-    // return newObject
+    return newObject
 
-    function foo() {}
-    foo.prototype = prototype;
-
-    return new foo();
+    // // Альтернативный, устаревший вариант
+    // function foo() {}
+    // foo.prototype = prototype;
+    //
+    // return new foo();
 }
 
 const obj2 = objectCreate(null);

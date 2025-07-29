@@ -2,7 +2,7 @@
 - https://maxcode.dev/courses/oop/
 
 ## Классы
- - [ ] [1.http-router](1.http-router.js)
+ - [x] [1.http-router](1.http-router.js)
  - [ ] [2.query-params](2.query-params.js)
  - [ ] [3.randomizer](3.randomizer.js)
  - [ ] [4.version-manager](4.version-manager.js)

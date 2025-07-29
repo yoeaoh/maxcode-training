@@ -26,7 +26,7 @@
 
 ## This
  - [x] [15.nouveau](15.nouveau.js)
- - [ ] [16.call](16.call.js)
+ - [attempted] [16.call](16.call.js)
  - [ ] [17.bind](17.bind.js)
  - [ ] [18.arrow-function](18.arrow-function.js)
 

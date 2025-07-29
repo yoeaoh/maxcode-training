@@ -1,6 +1,6 @@
 // https://maxcode.dev/problems/pipe/
 
-// Получилось наоборот, doublc => cube => inc
+// Получилось наоборот, double => cube => inc
 // А надо inc => cube => double
 
 // Function.prototype.pipe = function (fn) {
@@ -11,12 +11,11 @@
 // };
 
 Function.prototype.pipe = function (fn) {
-    // let context = this;
+    const context = this;
 
-    // return function (arg) {
-    //     context = fn;
-    //     console.log(context);
-    // }
+    return function (value) {
+        return fn(context(value));
+    }
 }
 
 const double = x => x * 2;
@@ -25,5 +24,5 @@ const inc = x => x + 1;
 
 const foo2 = inc.pipe(cube).pipe(double);
 
-console.log(foo2(1)); // 54
-
+console.log(foo2(2)); // 54
+// foo2(2);

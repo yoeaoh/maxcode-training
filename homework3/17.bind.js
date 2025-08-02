@@ -1,15 +1,19 @@
+// https://maxcode.dev/problems/bind/
+
 Function.prototype.bind2 = function(thisArg, ...args) {
     return (...args2) => {
-        return this.call(thisArg, ...args, ...args2);
+        if (thisArg === undefined || thisArg === null) {
+            return this(...args);
+        }
 
-        // const fnKey = Symbol();
-        // thisArg[fnKey] = this;
+        const context = Object(thisArg);
+        const fnKey = Symbol();
 
-        // const result = thisArg[fnKey](...args, ...args2);
+        context[fnKey] = this;
+        const result = context[fnKey](...args, ...args2);
+        delete context[fnKey];
 
-        // delete thisArg[fnKey];
-
-        // return result
+        return result
     }
 };
 

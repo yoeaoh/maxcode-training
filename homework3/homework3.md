@@ -26,8 +26,8 @@
 
 ## This
  - [x] [15.nouveau](15.nouveau.js)
- - [attempted] [16.call](16.call.js)
- - [attempted] [17.bind](17.bind.js)
+ - [x] [16.call](16.call.js)
+ - [x] [17.bind](17.bind.js)
  - [x] [18.arrow-function](18.arrow-function.js)
 
 ## Наследование

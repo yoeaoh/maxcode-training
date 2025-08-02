@@ -1,7 +1,93 @@
 // https://maxcode.dev/problems/query-params/
 
 class QueryParams {
+    constructor(query) {
+        if (query === undefined) {
+            return;
+        }
 
+        if (typeof query === 'object') {
+            const data = Object.entries(query);
+
+            data.forEach(([key, value]) => {
+                if (!Object.hasOwn(this, key)) {
+                    this[key] = [];
+                }
+
+                this[key].push(value);
+            })
+        }
+
+        if (typeof query === 'string') {
+            const params = query.split('&');
+
+            params.forEach((param) => {
+                const [key, value] = param.split('=')
+
+                if (!Object.hasOwn(this, key)) {
+                    this[key] = [];
+                }
+
+                this[key].push(value);
+            })
+        }        
+    }
+
+    has(key, value) {
+        if (value === undefined) {
+            return Object.hasOwn(this, key);
+        }
+
+        if (Object.hasOwn(this, key)) {
+            return this[key].includes(value);
+        }
+
+        return false;
+    }
+
+    get(paramName) {
+        return this[paramName][0];
+    }
+
+    getAll(paramName) {
+        return this[paramName];
+    }
+
+    set(key, value) {
+        this[key] = [value];
+    }
+
+    delete(key) {
+        delete this[key]
+    }
+
+    append(key, value) {
+        if (!Object.hasOwn(this, key)) {
+            this[key] = [];
+        }
+
+        this[key].push(value);
+    }
+
+    toString() {
+        return Object.entries(this).map(([key, values]) => values.map((value) => `${key}=${value}`).join('&')).join('&');
+
+        // const entries = Object.entries(this);
+        // const lastEntriesIndex = entries.length - 1;
+
+        // return entries.reduce((acc, [key, values], index) => {
+        //     const paramValues = values.map((value) => ([key, value]))
+
+        //     const paramString = `${key}=${value}`;
+        //     const divider = '&';
+
+        //     if (index === lastEntriesIndex) {
+        //         return acc.concat(paramString)
+        //     }
+
+        //     return acc.concat(paramString, divider);
+        // }, '');
+    }
 }
 
 // https://pokeapi.co/api/v2/pokemon/?offset=20&limit=5

@@ -4,14 +4,14 @@
 // 02. call is called on an original object
 // 05. thisArg является строкой: [].every.call2("12345", (x) => x >= '0' && x <= '9')
 Function.prototype.call2 = function(newThis, ...args) {
-    const context = this;
+    const fn = this;
 
-    const result = {
+    const context = {
         ...newThis,
-        fn: context,
+        calledFn: fn,
     }
 
-    return result.fn(...args);
+    return context.calledFn(...args);
 };
 
 function f(a, b) {

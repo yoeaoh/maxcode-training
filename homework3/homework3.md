@@ -3,7 +3,7 @@
 
 ## Классы
  - [x] [1.http-router](1.http-router.js)
- - [ ] [2.query-params](2.query-params.js)
+ - [x] [2.query-params](2.query-params.js)
  - [ ] [3.randomizer](3.randomizer.js)
  - [ ] [4.version-manager](4.version-manager.js)
  - [ ] [5.browser-history](5.browser-history.js)
@@ -27,8 +27,8 @@
 ## This
  - [x] [15.nouveau](15.nouveau.js)
  - [attempted] [16.call](16.call.js)
- - [ ] [17.bind](17.bind.js)
- - [ ] [18.arrow-function](18.arrow-function.js)
+ - [attempted] [17.bind](17.bind.js)
+ - [x] [18.arrow-function](18.arrow-function.js)
 
 ## Наследование
  - [ ] [19.instanceof](19.instanceof.js)

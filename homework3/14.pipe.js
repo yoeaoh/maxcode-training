@@ -19,6 +19,7 @@ Function.prototype.pipe = function (fn) {
         return fn(context(value));
     }
 }
+
 Function.prototype.pipe = function (fn) {
     console.log("this1", this);
     return function (value) {

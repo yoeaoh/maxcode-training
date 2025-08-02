@@ -14,7 +14,7 @@ class QueryParams {
             data.forEach(([key, value]) => {
                 // if (!Object.hasOwn(this, key)) {
                 // }
-                
+
                 this[key] ??= [];
                 this[key].push(value);
             })
@@ -32,7 +32,7 @@ class QueryParams {
 
                 this[key].push(value);
             })
-        }        
+        }
     }
 
     has(key, value) {
@@ -48,11 +48,11 @@ class QueryParams {
     }
 
     get(paramName) {
-        return this[paramName][0];
+        return this.paramName ? this[paramName][0] : null;
     }
 
     getAll(paramName) {
-        return this[paramName];
+        return this[paramName] ? this[paramName] : [];
     }
 
     set(key, value) {

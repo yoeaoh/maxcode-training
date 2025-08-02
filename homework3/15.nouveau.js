@@ -1,15 +1,12 @@
 // https://maxcode.dev/problems/nouveau/
 
 function nouveau(constructorFn, ...args) {
-    const newObject = Object.create(null);
-    if (typeof constructorFn.prototype === 'object') {
-        Object.setPrototypeOf(newObject, constructorFn.prototype);
-    }
-
+    const newObject = Object.create(constructorFn.prototype);
     const result = constructorFn.apply(newObject, args);
 
     // Проверка на примитив
-    if (result === Object(result)) {
+    // if (result === Object(result)) {
+    if (typeof result === "object" && result !== null || typeof result === "function") {
         return result;
     }
 

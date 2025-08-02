@@ -1,14 +1,16 @@
 Function.prototype.bind2 = function(thisArg, ...args) {
-    const fn = this;
+    return (...args2) => {
+        return this.call(thisArg, ...args, ...args2);
 
-    const context = {
-        ...thisArg,
-        bindedFn: function() {
-            return fn(...args)
-        },
+        // const fnKey = Symbol();
+        // thisArg[fnKey] = this;
+
+        // const result = thisArg[fnKey](...args, ...args2);
+
+        // delete thisArg[fnKey];
+
+        // return result
     }
-
-    return context.bindedFn;
 };
 
 function f(a, b, c) {

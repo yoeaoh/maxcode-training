@@ -1,21 +1,26 @@
 // https://maxcode.dev/problems/http-router/
 
 class HttpRouter {
-  routes = new Map();
+  #routes = new Map();
+  #obj = Object.create(null);
 
   addHandler(route, method, handler) {
     // Не уверен на счёт использования строк в качестве
     // ключей, но, вроде бы, не так уж и плохо.
-    this.routes.set(`${route}-${method}`, handler);
+    // this.#routes.set(`${route}-${method}`, handler);
+
+    this.#obj[route] ??= Object.create(null);
+    this.#obj[route][method] = handler;
   }
-
+  
   runRequest(route, method) {
-    if (!this.routes.has(`${route}-${method}`)) {
-      return "Error 404: Not Found";
-    }
-
-    return this.routes.get(`${route}-${method}`).call();
-
+    // if (!this.#routes.has(`${route}-${method}`)) {
+    //   return "Error 404: Not Found";
+    // }
+    
+    // return this.#routes.get(`${route}-${method}`)();
+    
+    return this.#obj[route]?.[method]?.() ?? "Error 404: Not Found";
   }
 }
 

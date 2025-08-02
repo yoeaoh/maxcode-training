@@ -1,6 +1,8 @@
 // https://maxcode.dev/problems/query-params/
 
 class QueryParams {
+    // make obj instead of use this
+
     constructor(query) {
         if (query === undefined) {
             return;
@@ -10,10 +12,10 @@ class QueryParams {
             const data = Object.entries(query);
 
             data.forEach(([key, value]) => {
-                if (!Object.hasOwn(this, key)) {
-                    this[key] = [];
-                }
-
+                // if (!Object.hasOwn(this, key)) {
+                // }
+                
+                this[key] ??= [];
                 this[key].push(value);
             })
         }
@@ -70,7 +72,9 @@ class QueryParams {
     }
 
     toString() {
-        return Object.entries(this).map(([key, values]) => values.map((value) => `${key}=${value}`).join('&')).join('&');
+        return Object.entries(this)
+            .flatMap(([key, values]) => values.map((value) => `${key}=${value}`))
+            .join('&');
 
         // const entries = Object.entries(this);
         // const lastEntriesIndex = entries.length - 1;
@@ -91,6 +95,14 @@ class QueryParams {
 }
 
 // https://pokeapi.co/api/v2/pokemon/?offset=20&limit=5
+
+const usp = new URLSearchParams();
+usp.append("x", 1)
+usp.append("y", 2)
+usp.append("x", 3)
+
+console.log(">>>>>>", usp.toString()); // x=1&y=2&x=3
+
 
 const u = new QueryParams();
 

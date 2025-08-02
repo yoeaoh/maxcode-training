@@ -18,7 +18,7 @@ const objA = {
                         const objD = {
                             x: "D",
                             y() {
-                                t();
+                                t.apply({x: 'Q'});
                             }
                         }
                         objD.y();
@@ -30,8 +30,13 @@ const objA = {
                 fn.call(objC);
             }
         }
-        objB.g();
+        // objB.g();
+        objB.g.call({x: "U"});
     }
 };
 
 objA.f();
+
+
+// https://maxcode.dev/cheatsheets/oop
+// 3.2. План определения значения this

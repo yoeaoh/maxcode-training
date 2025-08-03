@@ -3,47 +3,59 @@
 class Randomizer {
     #start = 0;
     #end = 0;
-    #availableValues = {};
+    #availableValues = [];
 
     constructor(...args) {
+        for (const arg of args) {
+            if (typeof arg !== 'number') {
+                throw new Error('аргумент не число');
+            }
+
+            if (!Number.isInteger(arg)) {
+                throw new Error('число не целое')
+            }
+        }
+
         switch (args.length) {
+            case 0:
+                throw new Error('мало аргументов');
             case 1:
                 this.#end = args[0];
                 break;
             case 2:
+                if (args[0] > args[1]) {
+                    throw new Error('левая граница больше правой');
+                }
+
                 this.#start = args[0];
                 this.#end = args[1];
                 break;
             default: {
-                // throw new Error('args error');
-                console.log('args error');
-                break;
+                throw new Error('много аргументов');
             }
         }
 
         for (let i = this.#start; i <= this.#end; i++) {
-            this.#availableValues[i] = i;
+            this.#availableValues.push(i);
         }
     }
 
     next() {
-        const length = Object.keys(this.#availableValues);
-
         function getRandomIntInclusive(min, max) {
             const minCeiled = Math.ceil(min);
             const maxFloored = Math.floor(max);
             return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
         }
 
-        let result = getRandomIntInclusive(this.#start, this.#end);
-        // console.log(result, this.#start, this.#end);
+        const randomAvailableIndex = getRandomIntInclusive(0, this.#availableValues.length - 1);
+        const result = this.#availableValues[randomAvailableIndex];
 
-        while (this.#heap.has(result)) {
-            result = getRandomIntInclusive(this.#start, this.#end);
-            console.log(result)
+        if (result === undefined) {
+            throw new Error('Error!');
         }
 
-        this.#heap.delete(result);
+        this.#availableValues = this.#availableValues.filter((value, index) => index !== randomAvailableIndex);
+
         return result;
     }
 }

@@ -76,18 +76,17 @@ class VersionManager {
     };
 }
 
+const vm1 = new VersionManager("2.0.3");
 
-// const vm1 = new VersionManager("2.0.3");
-//
-// console.log(
-//   vm1
-//     .major()     // "3.0.0"
-//     .minor()     // "3.1.0"
-//     .minor()     // "3.2.0"
-//     .minor()     // "3.3.0"
-//     .patch()     // "3.3.1"
-//     .release()
-// );
+console.log(
+  vm1
+    .major()     // "3.0.0"
+    .minor()     // "3.1.0"
+    .minor()     // "3.2.0"
+    .minor()     // "3.3.0"
+    .patch()     // "3.3.1"
+    .release()
+);
 
 const vm2 = new VersionManager("1.2.3");
 

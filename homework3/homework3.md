@@ -5,7 +5,7 @@
  - [x] [1.http-router](1.http-router.js)
  - [x] [2.query-params](2.query-params.js)
  - [x] [3.randomizer](3.randomizer.js)
- - [ ] [4.version-manager](4.version-manager.js)
+ - [x] [4.version-manager](4.version-manager.js)
  - [ ] [5.browser-history](5.browser-history.js)
  - [ ] [6.ids-provider](6.ids-provider.js)
 

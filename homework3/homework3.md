@@ -7,7 +7,7 @@
  - [x] [3.randomizer](3.randomizer.js)
  - [x] [4.version-manager](4.version-manager.js)
  - [x] [5.browser-history](5.browser-history.js)
- - [ ] [6.ids-provider](6.ids-provider.js)
+ - [x] [6.ids-provider](6.ids-provider.js)
 
 ## Дескрипторы свойств
  - [x] [7.counter](7.counter.js)

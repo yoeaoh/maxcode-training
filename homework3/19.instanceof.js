@@ -1,5 +1,6 @@
 // https://maxcode.dev/problems/instanceof/
 
+// Прошло только половину тестов.
 function isInstanceOf(obj, clazz) {
     if (typeof clazz !== "function") {
         console.log('Right-hand side of \'instanceof\' is not an object!');

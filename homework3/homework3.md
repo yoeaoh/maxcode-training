@@ -32,7 +32,7 @@
 
 ## Наследование
  - [x] [19.instanceof](19.instanceof.js)
- - [ ] [20.observable-set](20.observable-set.js)
+ - [x] [20.observable-set](20.observable-set.js)
  - [ ] [21.array-from](21.array-from.js)
  - [ ] [22.animals](22.animals.js)
  - [ ] [23.autobind](23.autobind.js)

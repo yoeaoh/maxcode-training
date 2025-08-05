@@ -1,20 +1,24 @@
-function depth(obj) {
-    let maxDepth = 0;
+// https://maxcode.dev/problems/max-depth/
 
-    if (typeof obj !== "object") {
-        return maxDepth;
+function depth(obj, currentDepth = 0) {
+    let result = currentDepth;
+    console.log(obj, currentDepth);
+
+    if (typeof obj !== 'object') {
+        return result;
     }
 
-    Object.keys(obj).forEach((key) => {
+    const keys = Object.keys(obj);
+
+    keys.forEach(key => {
         if (typeof obj[key] === 'object' && Object.keys(obj[key]).length > 0) {
-            maxDepth = depth(obj[key]);
+            result = Math.max(depth(obj[key], result + 1));
         }
     })
 
-    maxDepth++;
-
-    return maxDepth;
+    return result;
 }
+
 
 const obj = {
     a: 1,
@@ -77,7 +81,7 @@ const obj2 = {
 
 // обратились три раза и дошли до примитива:
 // obj.e.f.g
-console.log(depth(obj)); // 3
+// console.log(depth(obj)); // 3
 
-console.log(depth(obj1)); // 3
+// console.log(depth(obj1)); // 3
 console.log(depth(obj2)); // 4

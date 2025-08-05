@@ -31,7 +31,7 @@
  - [x] [18.arrow-function](18.arrow-function.js)
 
 ## Наследование
- - [ ] [19.instanceof](19.instanceof.js)
+ - [x] [19.instanceof](19.instanceof.js)
  - [ ] [20.observable-set](20.observable-set.js)
  - [ ] [21.array-from](21.array-from.js)
  - [ ] [22.animals](22.animals.js)

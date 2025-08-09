@@ -1,7 +1,19 @@
 // https://maxcode.dev/problems/tree-max-path/
 
+// Почти получилось, нужны доработки по тестам
 function maxSum(root) {
+    let leftSum = root.value;
+    let rightSum = root.value;
 
+    if (root.left !== null) {
+        leftSum += maxSum(root.left)
+    }
+
+    if (root.right !== null) {
+        rightSum += maxSum(root.right)
+    }
+
+    return Math.max(leftSum, rightSum);
 }
 
 const root = {

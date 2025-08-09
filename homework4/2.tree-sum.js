@@ -4,11 +4,11 @@ function sumTheTreeValues(root) {
     let currentSum = root.value;
 
     if (root.left !== null) {
-        currentSum = currentSum + sumTheTreeValues(root.left);
+        currentSum += sumTheTreeValues(root.left);
     }
 
     if (root.right !== null) {
-        currentSum = currentSum + sumTheTreeValues(root.right);
+        currentSum += sumTheTreeValues(root.right);
     }
 
     return currentSum;

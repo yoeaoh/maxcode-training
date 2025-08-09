@@ -1,76 +1,69 @@
 // https://maxcode.dev/problems/version-manager/
 
 class VersionManager {
-    #version = {
-        major: 0,
-        minor: 1,
-        patch: 0,
-    };
+    // #version = {
+    //     major: 0,
+    //     minor: 1,
+    //     patch: 0,
+    // };
 
     #history = [];
 
-    constructor(initialVersion) {
-        if (typeof initialVersion === "string") {
-            const [major, minor, patch] = initialVersion.split('.');
+    // 
 
-            this.#version = {
-                major: Number(major),
-                minor: Number(minor),
-                patch: Number(patch)
-            };
-        }
+    constructor(initialVersion = "0.1.0") {
+        const [major, minor, patch] = initialVersion.split('.').map(Number)
+        this.#history.push({major, minor, patch}); // [{major: 0, minor: 1, patch: 0}]
     }
 
     major() {
-        this.#history.push(this.#version);
+        const {major} = this.#history.at(-1);
 
-        this.#version = {
-            major: this.#version.major + 1,
+        this.#history.push({
+            major: major + 1,
             minor: 0,
             patch: 0,
-        }
+        });
 
         return this;
     }
 
     minor() {
-        this.#history.push(this.#version);
+        const {major, minor} = this.#history.at(-1);
 
-        this.#version = {
-            major: this.#version.major,
-            minor: this.#version.minor + 1,
+        this.#history.push({
+            major: major,
+            minor: minor + 1,
             patch: 0,
-        }
+        });
 
         return this;
     }
 
     patch() {
-        this.#history.push(this.#version);
+        const {major, minor, patch} = this.#history.at(-1);
 
-        this.#version = {
-            major: this.#version.major,
-            minor: this.#version.minor,
-            patch: this.#version.patch + 1,
-        }
+        this.#history.push({
+            major: major,
+            minor: minor,
+            patch: patch + 1,
+        });
 
         return this;
     };
 
     rollback() {
-        const previousVersion = this.#history.pop();
-
-        if (previousVersion === undefined) {
+        if (this.#history.length === 0) {
             throw new Error('Cannot rollback!');
         }
 
-        this.#version = previousVersion;
+        this.#history.pop();
 
         return this;
     };
 
     release() {
-        const { major, minor, patch } = this.#version;
+        const { major, minor, patch } = this.#history.at(-1);
 
         return `${major}.${minor}.${patch}`;
     };
@@ -99,3 +92,42 @@ console.log(
     .rollback()  // "1.3.0"
     .release()
 );
+
+
+class VersionManager {
+  constructor(startVersion = '0.1.0') {
+    this.versions = [startVersion.split('.').map(Number)];
+  }
+
+  major() {
+    const [major] = this.versions.at(-1);
+    this.versions.push([major + 1, 0, 0]);
+    return this;
+  }
+
+  minor() {
+    const [major, minor] = this.versions.at(-1);
+    this.versions.push([major, minor + 1, 0]);
+    return this;
+  }
+
+  patch() {
+    const [major, minor, patch] = this.versions.at(-1);
+    this.versions.push([major, minor, patch + 1]);
+    return this;
+  }
+
+  rollback() {
+    if (this.versions.length === 1) {
+      throw new TypeError('Cannot rollback!');
+    }
+
+    this.versions.pop();
+    return this;
+  }
+
+  release() {
+    return this.versions.at(-1).join(".");
+  }
+}
+

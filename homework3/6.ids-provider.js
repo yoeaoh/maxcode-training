@@ -1,15 +1,12 @@
 // https://maxcode.dev/problems/ids-provider/
 
 class IdsProvider {
-    #availableRevokedIds = [];
-    #currentCounter = null;
+    #availableRevokedIds = new Set();
+    #currentCounter = 0;
 
     generateId() {
-        if (this.#availableRevokedIds.length !== 0) {
+        if (this.#availableRevokedIds.size !== 0) {
             // Как будто должно быть решение получше
-
-            // Сначала решил сделать через Set/Map, т.к. там сохраняется порядок добавления,
-            // но потом понял, что нужно не это.
 
             // Объект как будто тоже не идеально, всё равно сортировать придётся,
             // единственное что удаление будет легче.
@@ -19,26 +16,24 @@ class IdsProvider {
             // delete this.#availableRevokedIds[minimalAvailableId];
 
             const minimalAvailableId = Math.min(...this.#availableRevokedIds);
-            this.#availableRevokedIds = this.#availableRevokedIds.filter((id) => id !== minimalAvailableId);
+            // this.#availableRevokedIds = this.#availableRevokedIds.filter((id) => id !== minimalAvailableId);
+            this.#availableRevokedIds.delete(minimalAvailableId);
 
             return minimalAvailableId;
         }
 
-        if (this.#currentCounter === null) {
-            this.#currentCounter = 0;
-            return this.#currentCounter;
-        }
-
+        const num = this.#currentCounter
         this.#currentCounter += 1;
-        return this.#currentCounter;
+        return num;
     }
 
     revokeId(id) {
-        if (id > this.#currentCounter) {
+        if (id >= this.#currentCounter) {
             return;
         }
 
-        this.#availableRevokedIds.push(id);
+        // this.#availableRevokedIds.push(id);
+        this.#availableRevokedIds.add(id);
     }
 }
 

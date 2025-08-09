@@ -67,3 +67,34 @@ console.log(historyA.visit("urlB")); // "urlB"
 historyA.visit("urlC");
 console.log(historyA.back()); // "urlB"
 console.log(historyA.forward()); // "urlC"
+
+class BrowserHistory {
+  constructor(url) {
+    this.urls = [url];
+    this.index = 0;
+  }
+
+  visit(address) {
+    this.urls.length = this.index + 1;
+    this.index++;
+    this.urls.push(address);
+    return address;
+  }
+
+  back() {
+    if (this.index === 0) {
+      return null;
+    }
+    this.index--;
+    return this.urls[this.index];
+  }
+
+  forward() {
+    if (this.index === this.urls.length) {
+      return null;
+    }
+    this.index++;
+    return this.urls[this.index];
+  }
+}
+

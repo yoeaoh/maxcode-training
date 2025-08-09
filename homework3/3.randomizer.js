@@ -41,24 +41,74 @@ class Randomizer {
     }
 
     next() {
+        if (this.#availableValues.length === 0) {
+            throw new Error('Числа из набора кончились!');
+        }
+
         function getRandomIntInclusive(min, max) {
-            const minCeiled = Math.ceil(min);
-            const maxFloored = Math.floor(max);
-            return Math.floor(Math.random() * (maxFloored - minCeiled + 1) + minCeiled); // The maximum is inclusive and the minimum is inclusive
+            if (![min, max].every(Number.isInteger)) throw "не целые"
+            if (min > max) throw "порядок неправильный"
+            return Math.floor(Math.random() * (max - min + 1) + min); // The maximum is inclusive and the minimum is inclusive
         }
 
         const randomAvailableIndex = getRandomIntInclusive(0, this.#availableValues.length - 1);
-        const result = this.#availableValues[randomAvailableIndex];
-
-        if (result === undefined) {
-            throw new Error('Error!');
+        
+        if (randomAvailableIndex === this.#availableValues.length - 1) {
+            return this.#availableValues.pop();
         }
+        
+        const result = this.#availableValues[randomAvailableIndex];
+        this.#availableValues[randomAvailableIndex] = this.#availableValues.pop();
 
-        this.#availableValues = this.#availableValues.filter((value, index) => index !== randomAvailableIndex);
-
+        // this.#availableValues = this.#availableValues.filter((value, index) => index !== randomAvailableIndex);
+        // this.#availableValues.splice(randomAvailableIndex, 1);
+        
         return result;
     }
+
+    *[Symbol.iterator]() {
+        while(true) {
+            try {
+                yield this.next();
+            } catch {
+                return;
+            }
+        }
+
+    }
 }
+
+// 0 1 2 3 4
+// a b c f e
+
+
+// array.splice(3, 1)
+
+// f(N) = N²
+
+// next   O(N)        O(N)       O(1)
+// 10000: 278.738ms
+// 20000: 1.122s
+// 30000: 2.845s      83.167ms
+// 60000:             326.795ms
+// 600000:                        40.369ms
+// 6000000:                       415.498ms
+
+// const N = 6_000_000
+// console.time(N)
+// const rand = new Randomizer(N);
+
+// for (let i = 0; i < N; i++) {
+//     rand.next();
+// }
+// console.timeEnd(N)
+
+// for(const num of new Randomizer(10, 20)) {
+//     console.log(num);
+// }
+
+console.log([...new Randomizer(10, 20)]);
+
 
 
 // const r1 = new Randomizer(5);
@@ -73,9 +123,9 @@ class Randomizer {
 // const r6 = new Randomizer(2.6, 8); // число не целое
 // const r7 = new Randomizer(8, 1); // левая граница больше правой
 
-const r = new Randomizer(2, 4);
+// const r = new Randomizer(2, 4);
 
-console.log(r.next()) // 3
-console.log(r.next()) // 2
-console.log(r.next()) // 4
-console.log(r.next()) // Error!
+// console.log(r.next()) // 3
+// console.log(r.next()) // 2
+// console.log(r.next()) // 4
+// console.log(r.next()) // Error!

@@ -1,24 +1,49 @@
 // https://maxcode.dev/problems/max-depth/
 
-function depth(obj, currentDepth = 0) {
-    let result = currentDepth;
-    console.log(obj, currentDepth);
+// function depth(obj, currentDepth = 0) {
+//     let result = currentDepth;
+//     console.log(obj, currentDepth);
 
-    if (typeof obj !== 'object') {
-        return result;
+//     if (typeof obj !== 'object') {
+//         return result;
+//     }
+
+//     const keys = Object.keys(obj);
+
+//     keys.forEach(key => {
+//         if (typeof obj[key] === 'object' && Object.keys(obj[key]).length > 0) {
+//             result = Math.max(depth(obj[key], result + 1));
+//         }
+//     })
+
+//     return result;
+// }
+
+const isNotObject = (obj) => 
+       obj === null 
+    || obj === undefined 
+    || Array.isArray(obj) 
+    || typeof obj === 'string' 
+    || typeof obj === 'number';
+
+
+function depth(obj, currentDepth = 0) {
+    let maxDepth = currentDepth;
+
+    if (isNotObject(obj)) {
+        return maxDepth;
     }
 
     const keys = Object.keys(obj);
 
-    keys.forEach(key => {
-        if (typeof obj[key] === 'object' && Object.keys(obj[key]).length > 0) {
-            result = Math.max(depth(obj[key], result + 1));
-        }
-    })
+    for (const key of keys) {
+        const newDepth = currentDepth + 1;
 
-    return result;
+        maxDepth = Math.max(depth(obj[key], newDepth), maxDepth);
+    }
+
+    return maxDepth;
 }
-
 
 const obj = {
     a: 1,
@@ -81,7 +106,7 @@ const obj2 = {
 
 // обратились три раза и дошли до примитива:
 // obj.e.f.g
-// console.log(depth(obj)); // 3
+console.log(depth(obj)); // 3
 
-// console.log(depth(obj1)); // 3
+console.log(depth(obj1)); // 3
 console.log(depth(obj2)); // 4

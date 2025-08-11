@@ -1,6 +1,6 @@
 // https://maxcode.dev/problems/clone/
 
-// Разобраться с циклическими ссылками
+// TODO: Разобраться с циклическими ссылками
 
 const isNotObject = (obj) =>
     obj === null

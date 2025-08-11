@@ -10,7 +10,7 @@
 - [ ] [4.deep-compare](4.deep-compare.js)
 - [ ] [5.smart-sum](5.smart-sum.js)
 - [ ] [6.flatten-arr](6.flatten-arr.js)
-- [ ] [7.clone](7.clone.js)
+- [attempted] [7.clone](7.clone.js)
 - [x] [8.permutations](8.permutations.js)
 - [ ] [9.breadcrumbs](9.breadcrumbs.js)
 - [ ] [10.islands-count](10.islands-count.js)

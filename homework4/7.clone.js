@@ -16,7 +16,6 @@ const isNotObject = (obj) => Object(obj) !== obj;
 //     return newObject;
 // }
 
-// Решение подсмотрел
 function clone(obj, hash = new WeakMap()) {
     if (isNotObject(obj)) {
         return obj;
@@ -25,18 +24,6 @@ function clone(obj, hash = new WeakMap()) {
     if (hash.has(obj)) {
         return hash.get(obj)
     }
-
-    const result = Object.create(Object.getPrototypeOf(obj));
-
-    hash.set(obj, result);
-
-    const keys = Object.keys(obj);
-
-    for (const key of keys) {
-        result[key] = clone(obj[key], hash);
-    }
-
-    return result;
 }
 
 const obj = {

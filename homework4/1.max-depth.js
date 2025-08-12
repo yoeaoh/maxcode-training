@@ -1,31 +1,6 @@
 // https://maxcode.dev/problems/max-depth/
 
-// function depth(obj, currentDepth = 0) {
-//     let result = currentDepth;
-//     console.log(obj, currentDepth);
-
-//     if (typeof obj !== 'object') {
-//         return result;
-//     }
-
-//     const keys = Object.keys(obj);
-
-//     keys.forEach(key => {
-//         if (typeof obj[key] === 'object' && Object.keys(obj[key]).length > 0) {
-//             result = Math.max(depth(obj[key], result + 1));
-//         }
-//     })
-
-//     return result;
-// }
-
-const isNotObject = (obj) => 
-       obj === null 
-    || obj === undefined 
-    || Array.isArray(obj) 
-    || typeof obj === 'string' 
-    || typeof obj === 'number';
-
+const isNotObject = (obj) => Object(obj) !== obj;
 
 function depth(obj, currentDepth = 0) {
     let maxDepth = currentDepth;

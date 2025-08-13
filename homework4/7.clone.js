@@ -2,7 +2,7 @@
 
 // TODO: Разобраться с циклическими ссылками
 
-const isNotObject = (obj) => Object(obj) !== obj;
+// const isNotObject = (obj) => Object(obj) !== obj;
 
 // function clone(obj) {
 //     const newObject = {};
@@ -16,14 +16,28 @@ const isNotObject = (obj) => Object(obj) !== obj;
 //     return newObject;
 // }
 
+const isNotObject = (obj) => Object(obj) !== obj;
+
 function clone(obj, hash = new WeakMap()) {
     if (isNotObject(obj)) {
         return obj;
     }
 
     if (hash.has(obj)) {
-        return hash.get(obj)
+        return hash.get(obj);
     }
+
+    const result = Object.create(Object.getPrototypeOf(obj));
+
+    hash.set(obj, result);
+
+    const keys = Object.keys(obj);
+
+    for (const key of keys) {
+        result[key] = clone(obj[key], hash);
+    }
+
+    return result;
 }
 
 const obj = {

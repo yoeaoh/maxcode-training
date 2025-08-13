@@ -12,5 +12,5 @@
 - [ ] [6.flatten-arr](6.flatten-arr.js)
 - [x] [7.clone](7.clone.js)
 - [x] [8.permutations](8.permutations.js)
-- [ ] [9.breadcrumbs](9.breadcrumbs.js)
+- [x] [9.breadcrumbs](9.breadcrumbs.js)
 - [ ] [10.islands-count](10.islands-count.js)

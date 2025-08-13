@@ -8,7 +8,7 @@
 - [x] [2.tree-sum](2.tree-sum.js)
 - [x] [3.tree-max-path](3.tree-max-path.js)
 - [ ] [4.deep-compare](4.deep-compare.js)
-- [ ] [5.smart-sum](5.smart-sum.js)
+- [x] [5.smart-sum](5.smart-sum.js)
 - [ ] [6.flatten-arr](6.flatten-arr.js)
 - [x] [7.clone](7.clone.js)
 - [x] [8.permutations](8.permutations.js)

@@ -7,15 +7,14 @@ function flattenArr(arr, depth = 1, currentDepth = 0) {
 
     let resultArray = [];
 
-    const newDepth = currentDepth + 1;
-
     for (const item of arr) {
         if (currentDepth < depth) {
+            const newDepth = currentDepth + 1;
             const flattenItem = flattenArr(item, depth, newDepth);
 
             resultArray = resultArray.concat(flattenItem);
 
-            continue
+            continue;
         }
 
         resultArray.push(item);

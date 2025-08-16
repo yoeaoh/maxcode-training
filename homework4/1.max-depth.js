@@ -1,23 +1,29 @@
 // https://maxcode.dev/problems/max-depth/
 
-const isNotObject = (obj) => Object(obj) !== obj;
+const isObject = (obj) => Object(obj) === obj;
 
-function depth(obj, currentDepth = 0) {
-    let maxDepth = currentDepth;
-
-    if (isNotObject(obj)) {
-        return maxDepth;
+function depth(obj) {
+    if (!isObject(obj)) {
+        return 0;
     }
 
-    const keys = Object.keys(obj);
+    const values = Object.values(obj);
 
-    for (const key of keys) {
-        const newDepth = currentDepth + 1;
-
-        maxDepth = Math.max(depth(obj[key], newDepth), maxDepth);
+    if (values.length === 0) {
+        return 0;
     }
 
-    return maxDepth;
+    const depths = values.map(depth);
+    const maxDepth = Math.max(...depths);
+
+    return maxDepth + 1;
+
+    // let maxDepth = 0;
+    // for (const key in obj) {
+    //     maxDepth = Math.max(depth(obj[key]) + 1, maxDepth);
+    // }
+
+    // return maxDepth;
 }
 
 const obj = {

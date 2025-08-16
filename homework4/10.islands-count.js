@@ -4,14 +4,20 @@ function countIslands(grid){
 
 }
 
+function helper(grid, y, x) {
+
+}
+
 const grid = [
     [0,0,0,0,0,0,0,0,0,0],
     [0,0,1,1,0,0,0,0,0,0],
     [0,0,1,1,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,1,0],
+    [1,1,1,0,0,0,0,0,1,0],
     [0,0,0,0,0,1,1,1,0,0],
     [1,1,0,0,0,0,0,0,0,0],
 ];
+
+helper(grid, 1, 2)
 
 console.log(countIslands(grid)); // 3
 

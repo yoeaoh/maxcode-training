@@ -1,8 +1,20 @@
 // https://maxcode.dev/problems/deep-compare/
 
-const isNotObject = (obj) => Object(obj) !== obj;
+const isObject = (obj) => Object(obj) === obj;
 
 function deepCompare(o1, o2) {
+    // if (isNotObject(o1[key]) || isNotObject(o2[key])) {
+    //     if (o1[key] !== o2[key]) {
+    //         return false;
+    //     }
+
+    //     continue;
+    // }
+
+    if (!isObject(o1) || !isObject(o2)) {
+        return o1 === o2;
+    }
+
     const keys1 = Object.keys(o1);
     const keys2 = Object.keys(o2);
 
@@ -10,25 +22,15 @@ function deepCompare(o1, o2) {
         return false
     }
 
-    for (const key of keys1) {
-        if (!Object.hasOwn(o2, key)) {
-            return false;
-        }
+    return keys1.every((key) => Object.hasOwn(o2, key) && deepCompare(o1[key], o2[key]))
 
-        if (isNotObject(o1[key]) || isNotObject(o2[key])) {
-            if (o1[key] !== o2[key]) {
-                return false;
-            }
+    // for (const key of keys1) {
+    //     if (!Object.hasOwn(o2, key) || !deepCompare(o1[key], o2[key])) {
+    //         return false;
+    //     }
+    // }
 
-            continue;
-        }
-
-        if (deepCompare(o1[key], o2[key]) === false) {
-            return false;
-        }
-    }
-
-    return true;
+    // return true;
 }
 
 const o1 = {

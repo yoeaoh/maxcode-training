@@ -1,17 +1,11 @@
 // https://maxcode.dev/problems/tree-sum/
 
 function sumTheTreeValues(root) {
-    let currentSum = root.value;
-
-    if (root.left !== null) {
-        currentSum += sumTheTreeValues(root.left);
+    if (root === null) {
+        return 0;
     }
-
-    if (root.right !== null) {
-        currentSum += sumTheTreeValues(root.right);
-    }
-
-    return currentSum;
+    
+    return root.value + sumTheTreeValues(root.left) + sumTheTreeValues(root.right);
 }
 
 const root = {

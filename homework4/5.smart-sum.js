@@ -1,27 +1,76 @@
 // https://maxcode.dev/problems/smart-sum/
 
+// function smartSum(arr) {
+//     let sum = 0;
+
+//     for (const item of arr) {
+//         // const increment = Array.isArray(item) ? smartSum(item) : item;
+
+//         sum += Array.isArray(item) ? smartSum(item) : item;
+//     }
+
+//     // for (let i = 0; i < arr.length; i++) {
+//     //     if (Array.isArray(arr[i])) {
+//     //         sum += smartSum(arr[i]);
+//     //
+//     //         continue;
+//     //     }
+//     //
+//     //     sum += arr[i];
+//     // }
+
+//     return sum;
+// }
+
 function smartSum(arr) {
-    let sum = 0;
+    const stack = [];
+    let result = 0;
 
-    for (const item of arr) {
-        // const increment = Array.isArray(item) ? smartSum(item) : item;
+    stack.push(arr);
 
-        sum += Array.isArray(item) ? smartSum(item) : item;
+    while (stack.length > 0) {
+        const lastItem = stack.pop();
+        
+        if (Array.isArray(lastItem)) {
+            for (const item of lastItem) {
+                stack.push(item);
+            } 
+            // stack.push(...lastItem);
+        } else {
+            result += lastItem;
+        }
     }
 
-    // for (let i = 0; i < arr.length; i++) {
-    //     if (Array.isArray(arr[i])) {
-    //         sum += smartSum(arr[i]);
-    //
-    //         continue;
-    //     }
-    //
-    //     sum += arr[i];
-    // }
-
-    return sum;
+    return result;
 }
 
-const arr = [1, [2, [[3, [4]], 5, 6], 7], [[[8]]]];
+// const a = [[1], 2, [[[3, [4]]], 5, [6], 7, 8], 9];
 
-console.log(smartSum(arr)); // 36
+// const stack = [
+//     [1], 2, [3, [4]]
+// ];
+
+
+
+// sum ← 9 +  8 + 7 + 6 + 5
+
+// pop()
+// push(val)
+// isEmpty()  // length === 0
+
+// top()      // at(-1)
+
+// const arr = [1, [2, [[3, [4]], 5, 6], 7], [[[8]]]];
+
+// console.log(smartSum(arr)); // 36
+
+
+let a = 1;
+
+for(let i = 0; i < 20_000; i++) {
+    a = [a];
+}
+
+a = Array(200_000).fill(1)
+
+console.log(smartSum(a));

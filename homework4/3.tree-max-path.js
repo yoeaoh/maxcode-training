@@ -6,7 +6,7 @@
 // DONE. Но нужно отрефакторить ифы.
 
 function maxSum(root) {
-    if (root === null || root === undefined) {
+    if (root === null) {
         return 0;
     }
 
@@ -14,30 +14,15 @@ function maxSum(root) {
         return root.value;
     }
 
-    let leftSum = 0;
-    let rightSum = 0;
-
     if (root.left === null && root.right !== null) {
-        rightSum = root.value + maxSum(root.right);
-
-        return rightSum;
+        return root.value + maxSum(root.right);
     }
 
     if (root.right === null && root.left !== null) {
-        leftSum = root.value + maxSum(root.left);
-
-        return leftSum;
+        return root.value + maxSum(root.left);
     }
 
-    if (root.left !== null) {
-        leftSum = root.value + maxSum(root.left);
-    }
-
-    if (root.right !== null) {
-        rightSum = root.value + maxSum(root.right);
-    }
-
-    return Math.max(leftSum, rightSum);
+    return root.value + Math.max(maxSum(root.left), maxSum(root.right));
 }
 
 const root = {

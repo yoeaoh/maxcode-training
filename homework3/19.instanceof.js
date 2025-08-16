@@ -7,6 +7,10 @@ function isInstanceOf(obj, clazz) {
         return;
         // throw new Error('Right-hand side of \'instanceof\' is not an object!');
     }
+    
+    if (Object(obj) !== obj) {
+        return false;
+    }
 
     let currentPrototype = Object.getPrototypeOf(obj);
 

@@ -1,28 +1,16 @@
 // https://maxcode.dev/problems/smart-sum/
 
-// function smartSum(arr) {
-//     let sum = 0;
-
-//     for (const item of arr) {
-//         // const increment = Array.isArray(item) ? smartSum(item) : item;
-
-//         sum += Array.isArray(item) ? smartSum(item) : item;
-//     }
-
-//     // for (let i = 0; i < arr.length; i++) {
-//     //     if (Array.isArray(arr[i])) {
-//     //         sum += smartSum(arr[i]);
-//     //
-//     //         continue;
-//     //     }
-//     //
-//     //     sum += arr[i];
-//     // }
-
-//     return sum;
-// }
-
 function smartSum(arr) {
+    let sum = 0;
+
+    for (const item of arr) {
+        sum += Array.isArray(item) ? smartSum(item) : item;
+    }
+
+    return sum;
+}
+
+function smartSumStack(arr) {
     const stack = [];
     let result = 0;
 

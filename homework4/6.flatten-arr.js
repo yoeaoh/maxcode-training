@@ -1,24 +1,24 @@
 // https://maxcode.dev/problems/flatten-arr/
 
-function flattenArr(arr, depth = 1, currentDepth = 0) {
-    if (!Array.isArray(arr)) {
-        return arr;
+function flattenArr(arr, depth = 1) {
+    if (depth === 0) {
+        return [...arr];
     }
 
     let resultArray = [];
 
     for (const item of arr) {
-        if (currentDepth < depth) {
-            const newDepth = currentDepth + 1;
-            const flattenItem = flattenArr(item, depth, newDepth);
-
-            resultArray = resultArray.concat(flattenItem);
-
-            continue;
+        if (!Array.isArray(item)) {
+            resultArray.push(item);
+            
+            continue
         }
 
-
-        resultArray.push(item);
+        const flattenItem = flattenArr(item, depth - 1);
+    
+        for (const innerItem of flattenItem) {
+            resultArray.push(innerItem);
+        }        
     }
 
     return resultArray;

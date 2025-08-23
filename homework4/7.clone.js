@@ -27,13 +27,12 @@ function clone(obj, hash = new WeakMap()) {
         return hash.get(obj);
     }
 
-    const result = Object.create(Object.getPrototypeOf(obj));
+    // const result = Object.create(Object.getPrototypeOf(obj));
+    const result = new obj.constructor;
 
     hash.set(obj, result);
 
-    const keys = Object.keys(obj);
-
-    for (const key of keys) {
+    for (const key in obj) {
         result[key] = clone(obj[key], hash);
     }
 
@@ -46,23 +45,26 @@ const obj = {
         z: 2,
         t: 3,
     },
+    arr: [7, 8, 9],
 };
+
+
 
 const objCopy = clone(obj);
 console.log(objCopy);
 
-objCopy.y.z = 100;
+// objCopy.y.z = 100;
 
-console.log(objCopy.y.z); // 100
-console.log(obj.y.z);     // 2
+// console.log(objCopy.y.z); // 100
+// console.log(obj.y.z);     // 2
 
-const obj2 = {
-    a: 1,
-};
-obj2.b = obj2;
+// const obj2 = {
+//     a: 1,
+// };
+// obj2.b = obj2;
 
-const obj2Copy = clone(obj2);
+// const obj2Copy = clone(obj2);
 
-obj2Copy.b.b.b.b.b.b.b.a = 2;
-console.log(obj2Copy.a); // 2
-console.log(obj2.a);     // 1
+// obj2Copy.b.b.b.b.b.b.b.a = 2;
+// console.log(obj2Copy.a); // 2
+// console.log(obj2.a);     // 1

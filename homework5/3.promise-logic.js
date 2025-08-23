@@ -1,7 +1,7 @@
 // https://maxcode.dev/problems/promise-logic/
 
 // Нужно объяснение, написал наугад (я вообще думал, что
-// resoolve/reject строку принимают, но решил попробовать
+// resolve/reject только строку принимают, но решил попробовать
 // передать туда промис)
 function and(p1, p2) {
     return p1.then(() => Promise.resolve(p2)).catch(() => Promise.reject(p2));

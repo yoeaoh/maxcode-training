@@ -1,7 +1,12 @@
 // https://maxcode.dev/problems/simple-all/
 
 function all(promises) {
-
+    return result = promises.reduce((acc, promise) => {
+        return promise.then((value) => acc.then(accValue => {
+            accValue.push(value)
+            return accValue
+        }))
+    }, new Promise(res => res([])))
 }
 
 const rand = () => Math.random() * 2000;

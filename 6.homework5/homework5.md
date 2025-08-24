@@ -3,13 +3,13 @@
 ## Разминка
 > Разминку решать без использования статических методов массива
 - [x] [1. Сумма двух промисов](1.add-two-promises.js)
-- [x] [need to refactor] [2. Сумма нескольких промисов](2.add-all-promises.js)
+- [x] [2. Сумма нескольких промисов](2.add-all-promises.js)
 - [x] [3. Promise Logic](3.promise-logic.js)
 - [x] [4. Количество успешных промисов](4.count-fulfilled-promises.js)
 
 ## Статические методы промисов
 - [x] [5. Полифил Promise.race](5.race.js)
-- [ ] [6. Упрощенный Promise.all](6.simple-all.js)
+- [x] [6. Упрощенный Promise.all](6.simple-all.js)
 - [ ] [7. Полифил Promise.all](7.all.js)
 - [ ] [8. Полифил Promise.allSettled](8.all-settled.js)
 - [ ] [9. Полифил Promise.any](9.any.js)

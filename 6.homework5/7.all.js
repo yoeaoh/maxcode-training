@@ -1,7 +1,23 @@
 // https://maxcode.dev/problems/all/
 
-function all(iterable) {
+// TODO: not working with set, empty set, rejected promises
+//  (should return one-item array with first rejected promise)
+//  also should work with not-promises (strings, etc.)
+function all(promises) {
+    return new Promise((res, rej) => {
+        const result = promises.reduce((acc, promise) => {
+            return promise
+                .then(
+                    (value) => acc.then(accValue => {
+                        accValue.push(value)
+                        return accValue
+                    }),
+                    reason => rej([reason])
+                )
+        }, new Promise(res => res([])))
 
+        res(result)
+    })
 }
 
 const rand = () => Math.random() * 2000;

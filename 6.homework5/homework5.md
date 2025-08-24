@@ -8,7 +8,7 @@
 - [x] [4. Количество успешных промисов](4.count-fulfilled-promises.js)
 
 ## Статические методы промисов
-- [ ] [5. Полифил Promise.race](5.race.js)
+- [x] [5. Полифил Promise.race](5.race.js)
 - [ ] [6. Упрощенный Promise.all](6.simple-all.js)
 - [ ] [7. Полифил Promise.all](7.all.js)
 - [ ] [8. Полифил Promise.allSettled](8.all-settled.js)

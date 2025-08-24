@@ -1,24 +1,10 @@
 // https://maxcode.dev/problems/add-all-promises/
 
-// TODO: Наверное, стоит отрефакторить
 function sum(...promises) {
-    if (promises.length === 0) {
-        return new Promise(resolve => resolve(0));
-    }
-
-    let result = promises[0];
-
-    for (let i = 0; i < promises.length; i++) {
-        if (i === 0) {
-            continue
-        }
-
-        result = result.then(number1 => promises[i].then(number2 => number1 + number2));
-    }
-
-    return result;
+    return promises.reduce((acc, promise) => {
+        return promise.then((value) => acc.then(accValue => accValue + value))
+    }, new Promise(res => res(0)))
 }
-
 
 const p1 = new Promise(resolve => resolve(1));
 const p2 = new Promise(resolve => resolve(2));

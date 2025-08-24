@@ -11,7 +11,7 @@
 - [x] [5. Полифил Promise.race](5.race.js)
 - [x] [6. Упрощенный Promise.all](6.simple-all.js)
 - [attempted] [7. Полифил Promise.all](7.all.js)
-- [ ] [8. Полифил Promise.allSettled](8.all-settled.js)
+- [attempted] [8. Полифил Promise.allSettled](8.all-settled.js)
 - [ ] [9. Полифил Promise.any](9.any.js)
 
 ## Микротаски и макротаски

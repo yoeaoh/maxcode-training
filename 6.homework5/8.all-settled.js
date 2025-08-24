@@ -1,7 +1,18 @@
 // https://maxcode.dev/problems/all-settled/
 
+// TODO: Almost done, but need to support Set, strings etc.
 function allSettled(iterable) {
-
+    return iterable.reduce((acc, promise) => {
+        return promise
+            .then(value => acc.then(accValue => {
+                accValue.push({status: 'fulfilled', value})
+                return accValue
+            }))
+            .catch(reason => acc.then(accValue => {
+                accValue.push({status: 'rejected', reason})
+                return accValue
+            }))
+    }, new Promise(res => res([])))
 }
 
 const rand = () => Math.random() * 2000;

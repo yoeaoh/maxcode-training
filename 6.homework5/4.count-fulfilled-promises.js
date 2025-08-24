@@ -5,7 +5,7 @@ function countFulfilledPromises(...promises) {
         return promise
             .then(() => acc.then(prevValue => prevValue + 1))
             .catch(() => acc.then(prevValue => prevValue))
-    }, Promise.resolve(0))
+    }, new Promise(res => res(0)))
 }
 
 const p1 = new Promise(resolve => resolve(1));

@@ -2,7 +2,7 @@
 - https://maxcode.dev/courses/fp/
 
 ## Методы массивов
- - [x] [0.filter](0.filter.js)
+ - [x] [0. Функция filter](0.filter.js)
  - [x] [1.bifurcate](1.bifurcate.js)
  - [x] [2.for-each](2.for-each.js)
  - [x] [3.some](3.some.js)

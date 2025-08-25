@@ -16,7 +16,7 @@
 
 ## Микротаски и макротаски
 - [attempted] [10. Sleep](10.sleep.js)
-- [ ] [11. Микротаски](11.microtasks.js)
+- [x] [11. Микротаски](11.microtasks.js)
 - [ ] [12. Event Loop](12.event-loop.js)
 - [ ] [13. Декоратор Time Limit](13.time-limit.js)
 - [ ] [14. Состояние промиса](14.state.js)

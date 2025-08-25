@@ -1,7 +1,8 @@
 // https://maxcode.dev/problems/microtasks/
 
+// С первой попытки, я не тупой!
 function solution() {
-    return [];
+    return [0, 1, 3, 2, 4, 5];
 }
 
 Promise.resolve()

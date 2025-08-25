@@ -1,6 +1,12 @@
 // https://maxcode.dev/problems/sleep/
 
+// TODO: Вроде бы правильно написал, но тесты не проходит..
+//  Условие не совсем понятное, мб как-то по-другому должно
+//  работать, но я не понял
 function sleep(ms) {
+    return new Promise(resolve => {
+        return setTimeout(() => resolve, ms)
+    })
 }
 
 multiplyBy3(10)

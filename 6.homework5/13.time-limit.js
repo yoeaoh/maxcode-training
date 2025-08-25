@@ -1,8 +1,6 @@
 // https://maxcode.dev/problems/time-limit/
 
-function timeLimit(fn, ms) {
-
-}
+function timeLimit(fn, ms) {}
 
 const fn = name => new Promise(resolve => {
     setTimeout(() => resolve(`Hello, ${name}!`), 500);

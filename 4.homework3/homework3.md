@@ -33,4 +33,4 @@
 ## Наследование
  - [x] [19.instanceof](19.instanceof.js)
  - [x] [20.observable-set](20.observable-set.js)
- - [ ] [21.array-from](21.array-from.js)
+ - [x] [21.array-from](21.array-from.js)

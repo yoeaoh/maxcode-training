@@ -1,24 +1,25 @@
 // https://maxcode.dev/problems/breadcrumbs/
 
+// Тут я, кажется, понял принцип, что мы начинаем получать результаты
+// рекурсии с конца, поэтому можно ссылаться на результат выполнения,
+// и от него отталкиваться
+function breadcrumbs(catalog, id) {
+    const result = [];
 
-// Вроде бы почти работает, но я не понял, что мне нужно возвращать из рекурсии, чтобы выйти из неё..
-// Как бы нужно отдавать что-то из рекурсии, чтобы её продолжить, т.к. мы не знаем, где именно будет категория
-// При этом, если отдавать на каждом шаге, то мы можем вернуть не то..
-function breadcrumbs({id, name, children}, targetId, previousPath = []) {
-    let currentPath = [...previousPath, name];
-
-    for (const item of children) {
-        breadcrumbs(item, targetId, currentPath);
-
-        // console.log(test);
+    if (catalog.id === id) {
+        result.push(catalog.name)
     }
 
-    if (id === targetId) {
-        console.log('result', [...previousPath, name]);
-        // return [...previousPath, name];
+    for (const item of catalog.children) {
+        const currentResult = breadcrumbs(item, id);
+
+        if (currentResult.length !== 0) {
+            result.push(catalog.name)
+            result.push(...currentResult);
+        }
     }
 
-    // return currentPath;
+    return result;
 }
 
 const catalog = {

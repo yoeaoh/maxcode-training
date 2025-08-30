@@ -24,8 +24,8 @@
 - [ ] [10. Количество островов](10.islands-count.js) 
 
 ### Stack
-- [ ] [11. Deep Compare / stack](11.deep-compare.stack.js)
+- [attempted] [11. Deep Compare / stack](11.deep-compare.stack.js)
 - [x] [meet10] [12. Smart Sum / stack](12.smart-sum.stack.js)
 - [x] [meet11] [13-2. Flatten Array.stack](13-2.flatten-arr.stack.js) // [Previous version here](13.flatten-arr.stack.js)
-- [ ] [14. Deep Clone / stack](14.clone.stack.js)
+- [attempted] [14. Deep Clone / stack](14.clone.stack.js)
 - [ ] [15. Количество островов / stack](15.islands-count.stack.js)

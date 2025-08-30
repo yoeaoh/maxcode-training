@@ -4,22 +4,38 @@
 // рекурсии с конца, поэтому можно ссылаться на результат выполнения,
 // и от него отталкиваться
 function breadcrumbs(catalog, id) {
-    const result = [];
-
     if (catalog.id === id) {
-        result.push(catalog.name)
+        return [catalog.name];
     }
 
     for (const item of catalog.children) {
         const currentResult = breadcrumbs(item, id);
 
-        if (currentResult.length !== 0) {
-            result.push(catalog.name)
-            result.push(...currentResult);
+        if (currentResult !== null) {
+            return [catalog.name, ...currentResult]
         }
     }
 
-    return result;
+    return null;
+}
+
+function breadcrumbs(catalog, id, path = []) {
+     if (catalog.id === id) {
+        return [...path, catalog.name];
+    }
+
+    path.push(catalog.name);
+    for (const item of catalog.children) {
+        const currentResult = breadcrumbs(item, id, path);
+        
+        if (currentResult !== null) {
+            path.pop();
+            return currentResult;
+        }
+    }
+    
+    path.pop();
+    return null;
 }
 
 const catalog = {

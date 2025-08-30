@@ -1,9 +1,27 @@
 // https://maxcode.dev/problems/add-all-promises/
 
+// function sum(...promises) {
+//     return promises.reduce((acc, promise) => {
+//         return promise.then((value) => acc.then(accValue => accValue + value))
+//     }, Promise.resolve(0))
+// }
+
+// async function sum(...promises) {
+//     let s = 0;
+//     for(const p of promises) {
+//         s += await p;
+//     }
+//     return s;
+// }
+
 function sum(...promises) {
-    return promises.reduce((acc, promise) => {
-        return promise.then((value) => acc.then(accValue => accValue + value))
-    }, new Promise(res => res(0)))
+    if (promises.length = 0) {
+        return Promise.resolve(0)
+    }
+
+    const [currentPromise, ...nextPromises] = promises
+
+    return currentPromise.then((value) => sum(...nextPromises).then(accValue => accValue + value))
 }
 
 const p1 = new Promise(resolve => resolve(1));

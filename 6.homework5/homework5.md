@@ -10,7 +10,7 @@
 ## Статические методы промисов
 - [x] [meet12] [5. Полифил Promise.race](5.race.js)
 - [x] [meet12] [6. Упрощенный Promise.all](6.simple-all.js)
-- [attempted] [7. Полифил Promise.all](7.all.js)
+- [x] [7. Полифил Promise.all](7.all.js)
 - [attempted] [8. Полифил Promise.allSettled](8.all-settled.js)
 - [attempted] [9. Полифил Promise.any](9.any.js)
 

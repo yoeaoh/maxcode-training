@@ -1,22 +1,51 @@
 // https://maxcode.dev/problems/all/
 
-// TODO: not working with set, empty set, rejected promises
-//  (should return one-item array with first rejected promise)
-//  also should work with not-promises (strings, etc.)
+// Попытки с десятой, но вроде получилось.
+// Хотелось бы отталкиваться от "isDone", но чёт не получается.
 function all(promises) {
-    return new Promise((res, rej) => {
-        const result = promises.reduce((acc, promise) => {
-            return promise
-                .then(
-                    (value) => acc.then(accValue => {
-                        accValue.push(value)
-                        return accValue
-                    }),
-                    reason => rej([reason])
-                )
-        }, new Promise(res => res([])))
+    const iterator = promises[Symbol.iterator]();
 
-        res(result)
+    let resolvedPromises = 0;
+    let iterableLength;
+    let index = 0;
+    let isDone = false;
+
+    const result = [];
+
+    return new Promise((resolve, reject) => {
+        while (!isDone) {
+            const currentItem = iterator.next()
+
+            if (currentItem.done) {
+                isDone = true;
+            }
+
+            const currentPromise = Promise.resolve(currentItem.value);
+            const currentIndex = index;
+
+            currentPromise.then(
+                value => {
+                    if (!value) {
+                        iterableLength = currentIndex;
+                    }
+
+                    if (value) {
+                        result[currentIndex] = value
+
+                        resolvedPromises += 1;
+                    }
+
+                    if (resolvedPromises === iterableLength) {
+                        resolve(result);
+                    }
+                },
+                reason => {
+                    reject(reason)
+                }
+            )
+
+            index += 1;
+        }
     })
 }
 

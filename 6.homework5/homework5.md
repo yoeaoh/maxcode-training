@@ -15,7 +15,7 @@
 - [x] [9. Полифил Promise.any](9.any.js)
 
 ## Микротаски и макротаски
-- [attempted] [10. Sleep](10.sleep.js)
+- [x] [10. Sleep](10.sleep.js)
 - [x] [11. Микротаски](11.microtasks.js)
 - [x] [12. Event Loop](12.event-loop.js)
 - [attempted] [13. Декоратор Time Limit](13.time-limit.js)

@@ -1,28 +1,50 @@
 // https://maxcode.dev/problems/any/
 
-// TODO: Придумать, как обрабатывать не только
-//  массивы (т.к. у других iterable нет length)
+// Что-то пошло не так.. попробовать другие подходы к поиску конца итератора
 function any(iterable) {
-    return new Promise((res, rej) => {
-        const errors = []
-        let rejectedCount = 0
+    const iterator = iterable[Symbol.iterator]();
 
-        for (const item of iterable) {
-            item
-                .then((value) => {
-                    res(value)
-                })
-                .catch((reason) => {
-                    rejectedCount++
-                    errors.push(reason)
+    let isDone = false;
+    let index = 0;
 
-                    if (iterable.length === rejectedCount) {
-                        rej({
-                            errors,
-                            message: 'All promises were rejected',
-                        })
+    const errors = [];
+
+    return new Promise((resolve, reject) => {
+        while (!isDone) {
+            const currentStep = iterator.next();
+
+            if (currentStep.done) {
+                isDone = true
+            }
+
+            const currentPromise = Promise.resolve(currentStep.value);
+            const currentIndex = index;
+
+            currentPromise.then(
+                value => {
+                    if (value) {
+                        resolve(value);
+                    } else {
+                        throw new Error('END')
                     }
-                })
+                },
+                reason => {
+                    errors[currentIndex] = reason;
+                }
+            ).catch(reason => {
+                if (reason.message === 'END') {
+                    return 'END'
+                }
+            }).then((value) => {
+                if (value === 'END') {
+                    reject({
+                        message: 'All promises were rejected',
+                        errors,
+                    });
+                }
+            })
+
+            index += 1;
         }
     })
 }

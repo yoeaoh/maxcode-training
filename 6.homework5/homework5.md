@@ -12,7 +12,7 @@
 - [x] [meet12] [6. Упрощенный Promise.all](6.simple-all.js)
 - [x] [7. Полифил Promise.all](7.all.js)
 - [x] [8. Полифил Promise.allSettled](8.all-settled.js)
-- [attempted] [9. Полифил Promise.any](9.any.js)
+- [attempted with iterator] [9. Полифил Promise.any](9.any.js)
 
 ## Микротаски и макротаски
 - [attempted] [10. Sleep](10.sleep.js)

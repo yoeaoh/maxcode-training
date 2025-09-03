@@ -1,6 +1,6 @@
 // https://maxcode.dev/problems/any/
 
-// Что-то пошло не так.. попробовать другие подходы к поиску конца итератора
+// Вроде бы работает, но что-то не проходит тесты..
 function any(iterable) {
     const iterator = iterable[Symbol.iterator]();
 
@@ -25,24 +25,16 @@ function any(iterable) {
                     if (value) {
                         resolve(value);
                     } else {
-                        throw new Error('END')
+                        reject({
+                            message: 'All promises were rejected',
+                            errors,
+                        });
                     }
                 },
                 reason => {
                     errors[currentIndex] = reason;
                 }
-            ).catch(reason => {
-                if (reason.message === 'END') {
-                    return 'END'
-                }
-            }).then((value) => {
-                if (value === 'END') {
-                    reject({
-                        message: 'All promises were rejected',
-                        errors,
-                    });
-                }
-            })
+            )
 
             index += 1;
         }

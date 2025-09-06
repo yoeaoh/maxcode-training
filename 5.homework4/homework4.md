@@ -21,7 +21,7 @@
 - [x] [meet12] [9. Хлебные крошки](9.breadcrumbs.js)
 
 ### Обход в глубину
-- [ ] [10. Количество островов](10.islands-count.js) 
+- [ ] [10. Количество островов](10.islands-count.js)
 
 ### Stack
 - [attempted] [11. Deep Compare / stack](11.deep-compare.stack.js)

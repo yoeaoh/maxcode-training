@@ -3,31 +3,20 @@
 const isObject = (obj) => Object(obj) === obj;
 
 function deepCompare(o1, o2) {
-    const keys1 = Object.keys(o1);
-    const keys2 = Object.keys(o2);
+    const stack1 = [];
+    const stack2 = [];
 
-    if (keys1.length !== keys2.length) {
-        return false
-    }
+    stack1.push(Object.entries(o1));
+    stack2.push(Object.entries(o2));
 
-    if (!isObject(o1) || !isObject(o2)) {
-        return o1 === o2;
-    }
+    while (stack1.length > 0 && stack2.length > 0) {
+        const stackOneCurrentItem = stack1.pop();
+        const stackTwoCurrentItem = stack2.pop();
 
-    const stack = [];
-    stack.push(keys1);
-
-    while (stack.length > 0) {
-        const lastKey = stack.pop();
-
-        if (!Object.hasOwn(o2, lastKey)) {
-            return false;
+        if (isObject(stackOneCurrentItem) && isObject(stackTwoCurrentItem)) {
+            
         }
-
-        // if ()
     }
-
-    Object.hasOwn(o2, key) && deepCompare(o1[key], o2[key])
 }
 
 const o1 = {

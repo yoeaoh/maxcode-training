@@ -1,13 +1,10 @@
 // https://maxcode.dev/problems/state/
 
 function getState(promise) {
-    const competingPendingPromise = Promise.resolve();
-    const realPromiseStatus = promise.then(() => 'fulfilled', () => 'rejected');
-    const competingPendingPromiseStatus = competingPendingPromise.then(() => 'pending');
-
+    
     return new Promise(resolve => {
-        realPromiseStatus.then(resolve);
-        competingPendingPromiseStatus.then(resolve);
+        promise.then(() => resolve('fulfilled'), () => resolve('rejected'));
+        queueMicrotask(() => resolve('pending'));
     })
 }
 

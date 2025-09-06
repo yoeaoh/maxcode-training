@@ -24,12 +24,18 @@ function countIslands(grid) {
 }
 
 function helper(grid, y, x) {
+    console.log('cell', y, x);
+
     for (const cell in currentCellSurroundings) {
         const currentCell = currentCellSurroundings[cell];
-        const currentCellCoordinates = currentCell(y, x);
+        const [currentY, currentX] = currentCell(y, x);
 
-        console.log(currentCellCoordinates);
+        if (grid?.[currentY]?.[currentX] === 1) {
+            helper(grid, currentY, currentX);
+        }
     }
+
+    console.log('---')
 }
 
 const grid = [

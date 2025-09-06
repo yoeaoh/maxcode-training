@@ -18,6 +18,7 @@ function solution() {
     ]
 }
 
+
 // TASK 1
 console.log('A');
 
@@ -43,21 +44,23 @@ setTimeout(() => {
     console.log('G');
 }, 10);
 
-// // TASK 2
-// setTimeout(() => {
-//     console.log('G');
-//     Promise.resolve().then(() => console.log('H'));
-// }, 0);
-//
-// new Promise(function (resolve, reject) {
-//     console.log('I');
-//     setTimeout(function () {
-//         console.log('J');
-//         resolve('K');
-//     }, 0);
-// }).then((res) => {
-//     console.log('L');
-//     setTimeout(() => {
-//         console.log(res);
-//     }, 0);
-// });
+// TASK 2
+setTimeout(() => {
+    console.log('G'); // 2
+    Promise.resolve().then(() => console.log('H')) // 3;
+}, 0);
+
+new Promise(function (resolve, reject) {
+    console.log('I'); // 1
+    setTimeout(function () {
+        console.log('J'); // 4
+        resolve('K');
+    }, 0);
+}).then((res) => {
+    console.log('L'); // 5
+    setTimeout(() => {
+        console.log(res); // 6
+    }, 0);
+});
+
+// https://maxcode.dev/problems/raf/

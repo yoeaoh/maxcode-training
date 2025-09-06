@@ -3,9 +3,9 @@
 function timeLimit(fn, ms) {
     return function(...args) {
         return new Promise((resolve, reject) => {
-            setTimeout(() => reject("Time Limit Exceeded"), ms);
+            const timeout = setTimeout(() => reject("Time Limit Exceeded"), ms);
 
-            fn(...args).then(resolve, reject);
+            fn(...args).then(resolve, reject).then(() => clearTimeout(timeout));
         })
     }
 }

@@ -25,6 +25,7 @@ function any(iterable) {
                     if (value) {
                         resolve(value);
                     } else {
+                        // Переписать на Aggr error
                         reject({
                             message: 'All promises were rejected',
                             errors,
@@ -40,6 +41,9 @@ function any(iterable) {
         }
     })
 }
+
+// https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise/any
+
 
 const rand = () => Math.random() * 2000;
 

@@ -2,9 +2,10 @@
 
 function sleep(ms) {
     return function(prevValue) {
-        return new Promise(resolve => setTimeout(() => {
-            resolve(prevValue);
-        }, ms))
+        // return new Promise(resolve => setTimeout(() => {
+        //     resolve(prevValue);
+        // }, ms))
+        return new Promise(resolve => setTimeout(resolve, ms, prevValue))
     }
 }
 

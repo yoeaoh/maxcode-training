@@ -1,50 +1,31 @@
 // https://maxcode.dev/problems/all/
 
-// Попытки с десятой, но вроде получилось.
-// Хотелось бы отталкиваться от "isDone", но чёт не получается.
-function all(promises) {
-    const iterator = promises[Symbol.iterator]();
-
-    let resolvedPromises = 0;
-    let iterableLength;
-    let index = 0;
-    let isDone = false;
-
+function all(iterable) {
+    let fulfilledCounter = 0;
+    let pendingCounter = 0;
     const result = [];
 
     return new Promise((resolve, reject) => {
-        while (!isDone) {
-            const currentItem = iterator.next()
+        for (const item of iterable) {
+            const index = pendingCounter;
 
-            if (currentItem.done) {
-                isDone = true;
-            }
-
-            const currentPromise = Promise.resolve(currentItem.value);
-            const currentIndex = index;
-
-            currentPromise.then(
+            Promise.resolve(item).then(
                 value => {
-                    if (!value) {
-                        iterableLength = currentIndex;
-                    }
+                    result[index] = value
+                    fulfilledCounter += 1;
 
-                    if (value) {
-                        result[currentIndex] = value
-
-                        resolvedPromises += 1;
-                    }
-
-                    if (resolvedPromises === iterableLength) {
+                    if (fulfilledCounter === pendingCounter) {
                         resolve(result);
                     }
                 },
-                reason => {
-                    reject(reason)
-                }
+                reject,
             )
 
-            index += 1;
+            pendingCounter += 1;
+        }
+
+        if (pendingCounter === 0) {
+            resolve([]);
         }
     })
 }

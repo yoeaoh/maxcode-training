@@ -23,7 +23,34 @@
 - [x] [meet13] [14. Состояние промиса](14.state.js)
 
 ## Методы промисов
-- [ ] [16. ](16.)
-- [ ] [17. ](17.)
-- [ ] [18. ](18.)
-- [ ] [19. ](19.)
+- [ ] [16. Цепочка промисов](16.chain.js)
+- [ ] [17. Как работает метод then](17.then.js)
+- [ ] [18. Полифил Promise#catch](18.catch.js)
+- [ ] [19. Полифил Promise#finally](19.finally.js)
+
+## Запуск асинхронных функций
+- [ ] [20. Асинхронный compose](20.compose-async.js)
+- [ ] [21. Поллинг](21.polling.js)
+- [ ] [22. Выполнение промисов партиями](22.promise-batch.js)
+- [ ] [23. Декоратор retry](23.retry.js)
+- [ ] [24. Promise Pool](24.promise-pool.js)
+- [ ] [25. Promise Pool с кэшированием](25.promise-pool-memo.js)
+
+## Async/await
+- [ ] [26. try-catch в async-функциях](26.async-try-catch.js)
+- [ ] [27. Event Loop с async-функциями](27.async-event-loop.js)
+- [ ] [28. Ускоряем асинхронный flatten](28.boost-async-flatten.js)
+
+## Callbacks
+- [ ] [29. Декоратор promisify](29.promisify.js)
+- [ ] [30. Декоратор callbackify](30.callbackify.js)
+- [ ] [31. Compose на колбэках](31.compose-callback.js)
+
+## Рекурсивные структуры
+- [ ] [32. Поиск всех js-файлов](32.file-system.js)
+- [ ] [33. Фильтруем товары](33.products.js)
+
+## Таймеры
+- [ ] [34. Cache With Time Limit](34.cache.js)
+- [ ] [35. Декоратор debounce](35.debounce.js)
+- [ ] [36. Декоратор throttle](36.throttle.js)

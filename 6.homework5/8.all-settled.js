@@ -1,50 +1,43 @@
 // https://maxcode.dev/problems/all-settled/
 
-// Много повторений, но вроде нормально не сократить
 function allSettled(iterable) {
-    const iterator = iterable[Symbol.iterator]()
-
     const result = [];
-    let isDone = false;
-    let index = 0;
-    let iterableLength = 0;
-    let resolvedPromises = 0;
+    let pendingCounter = 0;
+    let settledCounter = 0;
 
-    return new Promise((resolve) => {
-        while (!isDone) {
-            const currentItem = iterator.next();
+    return new Promise(resolve => {
+        for (const item of iterable) {
+            const index = pendingCounter;
 
-            if (currentItem.done) {
-                isDone = true;
+            // Хз что лучше, чтобы избежать повторений, такая внутренняя
+            // функция или второй .then (мне кажется .then как-то красивее)
+            const handlePromise = (state) => {
+                result[index] = state
+                settledCounter += 1;
+
+                if (settledCounter === pendingCounter) {
+                    resolve(result);
+                }
             }
 
-            const currentPromise = Promise.resolve(currentItem.value);
-            const currentIndex = index;
-
-            currentPromise.then(
-                value => {
-                    if (value) {
-                        result[currentIndex] = { status: 'fulfilled', value }
-                        resolvedPromises += 1;
-                    } else {
-                        iterableLength = currentIndex;
-                    }
-
-                    if (resolvedPromises === iterableLength) {
-                        resolve(result)
-                    }
-                },
-                reason => {
-                    result[currentIndex] = { status: 'rejected', reason }
-                    resolvedPromises += 1;
-
-                    if (resolvedPromises === iterableLength) {
-                        resolve(result)
-                    }
-                }
+            Promise.resolve(item).then(
+                value => handlePromise({ status: 'fulfilled', value }),
+                reason => handlePromise({ status: 'rejected', reason }),
             )
+            // .then(value => {
+            //     result[index] = value
+            //     settledCounter += 1;
+            //
+            //     if (settledCounter === pendingCounter) {
+            //         resolve(result);
+            //     }
+            // })
 
-            index += 1;
+            pendingCounter += 1;
+        }
+
+        if (pendingCounter === 0) {
+            resolve([]);
         }
     })
 }

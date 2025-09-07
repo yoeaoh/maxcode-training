@@ -1,43 +1,34 @@
 // https://maxcode.dev/problems/any/
 
-// Вроде бы работает, но что-то не проходит тесты..
 function any(iterable) {
-    const iterator = iterable[Symbol.iterator]();
-
-    let isDone = false;
-    let index = 0;
-
     const errors = [];
+    let pendingCounter = 0;
+    let errorsCounter = 0;
 
     return new Promise((resolve, reject) => {
-        while (!isDone) {
-            const currentStep = iterator.next();
+        for (const item of iterable) {
+            const index = pendingCounter;
 
-            if (currentStep.done) {
-                isDone = true
-            }
+            Promise.resolve(item).then(
+                value => resolve(value),
+                reason => {
+                    errorsCounter += 1;
 
-            const currentPromise = Promise.resolve(currentStep.value);
-            const currentIndex = index;
+                    errors[index] = reason;
 
-            currentPromise.then(
-                value => {
-                    if (value) {
-                        resolve(value);
-                    } else {
-                        // Переписать на Aggr error
-                        reject({
-                            message: 'All promises were rejected',
-                            errors,
-                        });
+                    console.log(errorsCounter, pendingCounter);
+
+                    if (errorsCounter === pendingCounter) {
+                        reject(new AggregateError(errors, "All promises were rejected"));
                     }
                 },
-                reason => {
-                    errors[currentIndex] = reason;
-                }
             )
 
-            index += 1;
+            pendingCounter += 1;
+        }
+
+        if (pendingCounter === 0) {
+            reject(new AggregateError(errors, "All promises were rejected"))
         }
     })
 }

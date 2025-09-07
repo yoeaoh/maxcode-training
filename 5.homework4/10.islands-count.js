@@ -12,30 +12,32 @@ const currentCellSurroundings = {
 }
 
 function countIslands(grid) {
+    let islandCount = 0;
+
     for (let y = 0; y < grid.length; y++) {
         const currentRow = grid[y];
 
         for (let x = 0; x < currentRow.length; x++) {
             if (grid[y][x] === 1) {
+                islandCount += 1;
                 helper(grid, y, x);
             }
         }
     }
+
+    return islandCount;
 }
 
 function helper(grid, y, x) {
-    console.log('cell', y, x);
-
-    for (const cell in currentCellSurroundings) {
-        const currentCell = currentCellSurroundings[cell];
-        const [currentY, currentX] = currentCell(y, x);
+    for (const direction in currentCellSurroundings) {
+        const getDirectionCoordinates = currentCellSurroundings[direction];
+        const [currentY, currentX] = getDirectionCoordinates(y, x);
 
         if (grid?.[currentY]?.[currentX] === 1) {
+            grid[currentY][currentX] = 'x';
             helper(grid, currentY, currentX);
         }
     }
-
-    console.log('---')
 }
 
 const grid = [
@@ -46,8 +48,6 @@ const grid = [
     [0,0,0,0,0,1,1,1,0,0],
     [1,1,0,0,0,0,0,0,0,0],
 ];
-
-helper(grid, 1, 2)
 
 console.log(countIslands(grid)); // 3
 

@@ -1,5 +1,9 @@
 // https://maxcode.dev/problems/catch/
 
+Promise.prototype.myCatch = function(callback) {
+    return this.then(() => this, callback);
+}
+
 Promise.resolve(10)
     .then(x => x + 100)
     .then(x => {

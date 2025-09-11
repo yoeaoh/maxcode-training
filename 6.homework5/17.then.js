@@ -1,11 +1,12 @@
-https://maxcode.dev/problems/then/
+// https://maxcode.dev/problems/then/
 
+// Не с первой попытки, но вроде разобрался
 function solution() {
     return [
-        { log: "", time: 0 },
-        { log: "", time: 0 },
-        { log: "", time: 0 },
-        { log: "", time: 0 },
+        { log: "second", time: 3000 },
+        { log: undefined, time: 1000 },
+        { log: "first", time: 1000 },
+        { log: "second", time: 3000 },
     ];
 }
 

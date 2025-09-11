@@ -26,7 +26,7 @@
 - [x] [16. Цепочка промисов](16.chain.js)
 - [x] [17. Как работает метод then](17.then.js)
 - [x] [18. Полифил Promise#catch](18.catch.js)
-- [ ] [19. Полифил Promise#finally](19.finally.js)
+- [attempted] [19. Полифил Promise#finally](19.finally.js)
 
 ## Запуск асинхронных функций
 - [ ] [20. Асинхронный compose](20.compose-async.js)

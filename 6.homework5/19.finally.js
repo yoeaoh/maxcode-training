@@ -1,7 +1,16 @@
 // https://maxcode.dev/problems/finally/
 
-Promise.prototype.myFinally = function() {
+// Два кейса не прошло, но я их не понял)
+// 1. Успешный промис, а в колбэке возвращается реджектнутый промис
+// 2. Неуспешный промис, в колбеке возвращается реджектнутый промис
 
+Promise.prototype.myFinally = function(callback) {
+    const newCallback = () => {
+        callback();
+        return this;
+    }
+
+    return this.then(newCallback, newCallback);
 }
 
 Promise.resolve(100)

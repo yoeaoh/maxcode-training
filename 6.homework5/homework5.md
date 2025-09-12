@@ -29,7 +29,7 @@
 - [attempted] [19. Полифил Promise#finally](19.finally.js)
 
 ## Запуск асинхронных функций
-- [attempted] [20. Асинхронный compose](20.compose-async.js)
+- [x] [20. Асинхронный compose](20.compose-async.js)
 - [ ] [21. Поллинг](21.polling.js)
 - [ ] [22. Выполнение промисов партиями](22.promise-batch.js)
 - [ ] [23. Декоратор retry](23.retry.js)

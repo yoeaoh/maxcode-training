@@ -1,45 +1,37 @@
 // https://maxcode.dev/problems/compose-async/
 
-// Это чёт не проходит, хотя вроде мапу добавил
-
-// 04. Для одинакового аргумента функция возвращает один и тот же ответ
-//     Promise resolution is still pending but the event loop has already resolved
-
 function compose(fns) {
     const functionsCount = fns.length;
     let composedFns = 0;
 
-    const resultsMap = new Map()
+    const resultsMap = new Map();
 
     return function(initialValue) {
+        if (resultsMap.has(fns)) {
+            if (resultsMap.get(fns)[initialValue] !== undefined) {
+                return resultsMap.get(fns)[initialValue];
+            }
+        }
+
         return new Promise((resolve, reject) => {
             if (functionsCount === 0) {
                 resolve(initialValue);
             }
 
             return fns.reduceRight((acc, fn) => {
-                return acc.then(accValue => {
-                    console.log(resultsMap)
+                return acc.then(accValue => fn(accValue).then(
+                    value => {
+                        resultsMap.set(fn, {accValue: value})
 
-                    if (resultsMap.has(fn)) {
-                        if (resultsMap.get(fn)[accValue]) {
-                            return Promise.resolve(resultsMap.get(fn)[accValue])
+                        composedFns += 1;
+
+                        if (composedFns === functionsCount) {
+                            resultsMap.set(fns, {[initialValue]: value});
+                            resolve(value);
                         }
-                    }
 
-                    return fn(accValue).then(
-                            value => {
-                                resultsMap.set(fn, {[accValue]: value})
-
-                                composedFns += 1;
-
-                                if (composedFns === functionsCount) {
-                                    resolve(value);
-                                }
-
-                                return value
-                            })
-                    },
+                        return value
+                    }),
                     reason => reject(reason)
                 )
             }, Promise.resolve(initialValue))

@@ -30,7 +30,7 @@
 
 ## Запуск асинхронных функций
 - [x] [20. Асинхронный compose](20.compose-async.js)
-- [ ] [21. Поллинг](21.polling.js)
+- [x] [21. Поллинг](21.polling.js)
 - [ ] [22. Выполнение промисов партиями](22.promise-batch.js)
 - [ ] [23. Декоратор retry](23.retry.js)
 - [ ] [24. Promise Pool](24.promise-pool.js)

@@ -1,6 +1,10 @@
 // https://maxcode.dev/problems/promise-batch/
 
 function run(fns, limit) {
+    let runningFns = 0;
+
+    const firstPortion = fns.slice(0, limit);
+    console.log(firstPortion);
 }
 
 const fn1 = () => new Promise(r => setTimeout(r, 3400, "a"));

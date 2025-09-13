@@ -6,7 +6,7 @@ async function run(fns, limit) {
     let from = 0;
     let to = limit;
 
-    return new Promise(async (resolve) => {
+    // return new Promise(async (resolve) => {
         while (to - limit < fns.length) {
             const portion = fns.slice(from, to).map(fn => fn());
             from += limit;
@@ -15,8 +15,9 @@ async function run(fns, limit) {
             await Promise.all(portion).then(values => result.push(...values));
         }
 
-        resolve(result);
-    })
+        // resolve(result);
+        return result;
+    // })
 }
 
 const fn1 = () => new Promise(r => setTimeout(r, 3400, "a"));

@@ -11,6 +11,12 @@ const currentCellSurroundings = {
     left: (y, x) => [y, x - 1],
 }
 
+const directions = [
+    [-1, -1], [-1,  0], [-1, +1],
+    [ 0, -1],           [ 0, +1],
+    [+1, -1], [+1,  0], [+1, +1],
+];
+
 function countIslands(grid) {
     let islandCount = 0;
 
@@ -29,15 +35,25 @@ function countIslands(grid) {
 }
 
 function helper(grid, y, x) {
-    for (const direction in currentCellSurroundings) {
-        const getDirectionCoordinates = currentCellSurroundings[direction];
-        const [currentY, currentX] = getDirectionCoordinates(y, x);
-
-        if (grid?.[currentY]?.[currentX] === 1) {
-            grid[currentY][currentX] = 'x';
-            helper(grid, currentY, currentX);
-        }
+    if (y < 0 || y >= grid.length || x < 0 || x >= grid[y].length) {
+        return;
     }
+    if (grid[y][x] !== 1) {
+        return;
+    }
+
+    grid[y][x] = 'x';
+
+    for(const [dy, dx] of directions) {
+        helper(grid, y + dy, x + dx);
+    }
+
+    // for (const direction in currentCellSurroundings) {
+    //     const getDirectionCoordinates = currentCellSurroundings[direction];
+    //     const [currentY, currentX] = getDirectionCoordinates(y, x);
+
+    //     helper(grid, currentY, currentX);
+    // }
 }
 
 const grid = [

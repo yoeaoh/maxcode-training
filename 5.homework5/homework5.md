@@ -23,18 +23,18 @@
 - [x] [meet13] [14. Состояние промиса](14.state.js)
 
 ## Методы промисов
-- [x] [16. Цепочка промисов](16.chain.js)
-- [x] [17. Как работает метод then](17.then.js)
-- [x] [18. Полифил Promise#catch](18.catch.js)
-- [attempted] [19. Полифил Promise#finally](19.finally.js)
+- [x] [meet14] [16. Цепочка промисов](16.chain.js)
+- [x] [meet14] [17. Как работает метод then](17.then.js)
+- [x] [meet14] [18. Полифил Promise#catch](18.catch.js)
+- [x] [meet14] [19. Полифил Promise#finally](19.finally.js)
 
 ## Запуск асинхронных функций
-- [x] [20. Асинхронный compose](20.compose-async.js)
-- [x] [21. Поллинг](21.polling.js)
-- [ ] [22. Выполнение промисов партиями](22.promise-batch.js)
+- [x / [ ]] [retry without async/await] [20. Асинхронный compose](20.compose-async.js)
+- [x / [ ]] [retry without async/await] [21. Поллинг](21.polling.js)
+- [x / [ ]] [retry without async/await] [22. Выполнение промисов партиями](22.promise-batch.js)
 - [ ] [23. Декоратор retry](23.retry.js)
 - [ ] [24. Promise Pool](24.promise-pool.js)
-- [ ] [25. Promise Pool с кэшированием](25.promise-pool-memo.js)
+- [ ] [maybe skip / just quick try] [25. Promise Pool с кэшированием](25.promise-pool-memo.js)
 
 ## Async/await
 - [ ] [26. try-catch в async-функциях](26.async-try-catch.js)
@@ -43,7 +43,7 @@
 
 ## Callbacks
 - [ ] [29. Декоратор promisify](29.promisify.js)
-- [ ] [30. Декоратор callbackify](30.callbackify.js)
+- [ ] [maybe skip / just quick try] [30. Декоратор callbackify](30.callbackify.js)
 - [ ] [31. Compose на колбэках](31.compose-callback.js)
 
 ## Рекурсивные структуры

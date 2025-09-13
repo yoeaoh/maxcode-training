@@ -11,20 +11,49 @@ function solution() {
 }
 
 const first = () => new Promise(r => setTimeout(r, 1000, 'first'));
-const second = () => new Promise(r => setTimeout(r, 2000, 'second'));
+let second;/// = () => new Promise(r => setTimeout(r, 2000, 'second'));
+
+setTimeout(() => {
+    second = () => new Promise(r => setTimeout(r, 2000, 'third'));
+}, 500);
 
 // Пример 1
 first().then(function () {
     return second();
 }).then(console.log);
 
+// --------
+//         ---------------
+//                        -----
+
+
 // Пример 2
 first().then(function () {
     second();
 }).then(console.log);
 
+// --------
+//         ---------------
+//          ------      
+
 // Пример 3
+//           x => x
 first().then(second()).then(console.log);
+
+// --------
+// ---------------
+//         -----
+
 
 // Пример 4
 first().then(second).then(console.log);
+
+const a = [];
+
+let x = 1;
+a.push(x);
+x = 2;
+
+// --------
+//         ---------------
+//                        -----

@@ -32,8 +32,8 @@
 - [x / [ ]] [retry without async/await] [20. Асинхронный compose](20.compose-async.js)
 - [x / [ ]] [retry without async/await] [21. Поллинг](21.polling.js)
 - [x / [ ]] [retry without async/await] [22. Выполнение промисов партиями](22.promise-batch.js)
-- [ ] [23. Декоратор retry](23.retry.js)
-- [ ] [24. Promise Pool](24.promise-pool.js)
+- [attempted] [23. Декоратор retry](23.retry.js)
+- [attempted] [24. Promise Pool](24.promise-pool.js)
 - [ ] [maybe skip / just quick try] [25. Promise Pool с кэшированием](25.promise-pool-memo.js)
 
 ## Async/await

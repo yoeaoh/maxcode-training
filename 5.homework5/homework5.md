@@ -37,8 +37,8 @@
 - [ ] [maybe skip / just quick try] [25. Promise Pool с кэшированием](25.promise-pool-memo.js)
 
 ## Async/await
-- [ ] [26. try-catch в async-функциях](26.async-try-catch.js)
-- [ ] [27. Event Loop с async-функциями](27.async-event-loop.js)
+- [x] [26. try-catch в async-функциях](26.async-try-catch.js)
+- [x] [27. Event Loop с async-функциями](27.async-event-loop.js)
 - [ ] [28. Ускоряем асинхронный flatten](28.boost-async-flatten.js)
 
 ## Callbacks

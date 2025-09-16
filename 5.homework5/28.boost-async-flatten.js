@@ -1,33 +1,21 @@
 // https://maxcode.dev/problems/boost-async-flatten/
 
+// Мне не нравится решение, но я не смог придумать, как обойтись без Promise.all и без флета в конце
 async function flatten(aa) {
-    const result = [];
-
     return new Promise(resolve => {
         aa.read().then(elements => {
-            for (const element of elements) {
+            Promise.all(elements.map((element) => {
                 if (element instanceof AA) {
-                    flatten(element).then(value => {
-                        result.push(value)
-
-                        if (result.length === elements.length) {
-                            resolve(result)
-                        }
-                    });
+                    return flatten(element)
                 } else {
-                    Promise.resolve(element).then(value => {
-                        result.push(value)
-
-                        if (result.length === elements.length) {
-                            resolve(result)
-                        }
-                    });
+                    return Promise.resolve(element);
                 }
-            }
+            })).then(result => {
+                resolve(result.flat())
+            })
         })
     })
 }
-
 
 class AA {
     #array;
@@ -52,7 +40,7 @@ const example = new AA(
 
 console.time("aa")
 flatten(example).then((result) => {
-    console.log(result); // [1,2,3,4,5,6,7,8,9,10,11,12,13]
+    console.dir(result, {depth: null}); // [1,2,3,4,5,6,7,8,9,10,11,12,13]
     console.timeEnd("aa"); // ≈ 1000 ms
 });
 

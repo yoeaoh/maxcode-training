@@ -39,7 +39,7 @@
 ## Async/await
 - [x] [26. try-catch в async-функциях](26.async-try-catch.js)
 - [x] [27. Event Loop с async-функциями](27.async-event-loop.js)
-- [ ] [28. Ускоряем асинхронный flatten](28.boost-async-flatten.js)
+- [x] [28. Ускоряем асинхронный flatten](28.boost-async-flatten.js)
 
 ## Callbacks
 - [ ] [29. Декоратор promisify](29.promisify.js)

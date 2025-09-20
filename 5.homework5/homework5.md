@@ -47,10 +47,12 @@
 - [attempted] [31. Compose на колбэках](31.compose-callback.js)
 
 ## Рекурсивные структуры
-- [ ] [32. Поиск всех js-файлов](32.file-system.js)
+- [x] [32. Поиск всех js-файлов](32.file-system.js)
 - [ ] [33. Фильтруем товары](33.products.js)
 
 ## Таймеры
-- [ ] [34. Cache With Time Limit](34.cache.js)
+- [attempted] [34. Cache With Time Limit](34.cache.js)
 - [ ] [35. Декоратор debounce](35.debounce.js)
 - [ ] [36. Декоратор throttle](36.throttle.js)
+- [ ] [37. Простой Rate Limiter](37.simple-rate-limiter.js)
+- [ ] [38. Rate Limiter](38.rate-limiter.js)

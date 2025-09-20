@@ -44,7 +44,7 @@
 ## Callbacks
 - [attempted] [29. Декоратор promisify](29.promisify.js)
 - [ ] [maybe skip / just quick try] [30. Декоратор callbackify](30.callbackify.js)
-- [ ] [31. Compose на колбэках](31.compose-callback.js)
+- [attempted] [31. Compose на колбэках](31.compose-callback.js)
 
 ## Рекурсивные структуры
 - [ ] [32. Поиск всех js-файлов](32.file-system.js)

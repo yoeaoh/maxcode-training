@@ -1,7 +1,20 @@
 // https://maxcode.dev/problems/compose-callback/
 
+// Голова не работает, на потом оставить
 function compose(fns) {
+    let result;
 
+    return function (value, cb) {
+        for (let i = fns.length - 1; i >= 0; i--) {
+            const argument = i === fns.length - 1 ? value : result;
+
+            result = fns[i](argument, cb)
+
+            if (i === 0) {
+                return result
+            }
+        }
+    }
 }
 
 function cube(x, cb) {

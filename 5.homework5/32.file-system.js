@@ -2,32 +2,35 @@
 
 // Вроде почти решил, но запутался.. 
 function findAllJavascriptFiles(folder, callback) {
+    if (typeof folder === 'string') {
+        callback(folder.endsWith('.js') ? [folder] : []);
+        return;
+    }
+
     const result = [];
+    let index = 0;
 
     folder.size(size => {
+        if (size === 0) {
+            callback(result);
+        }
+
         for (let i = 0; i < size; i++) {
             folder.read(i, (value) => {
-                if (typeof value === 'string') {
-                    if (value.split('.')[1] === 'js') {
-                        result.push(value);
-                    }
-
-                    if (i === size - 1) {
+                findAllJavascriptFiles(value, (arr) => {
+                    result.push(...arr)
+                    
+                    index += 1;
+                    if (index === size) {
                         callback(result)
                     }
-                } else {
-                    findAllJavascriptFiles(value, (arr) => {
-                        result.push(...arr)
-
-                        if (i === size - 1) {
-                            callback(result)
-                        }
-                    })
-                }
+                })
             })
         }
     })
 }
+
+
 
 function Folder(files) {
     const rand = () => Math.random() * 500;
@@ -45,6 +48,7 @@ const root = Folder([
         Folder([
             "3.txt",
         ]),
+        Folder([]),
         "4.js",
     ]),
     Folder([

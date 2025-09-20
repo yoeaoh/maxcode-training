@@ -2,6 +2,7 @@
 
 class TimeLimitedCache {
     #keys = new Map()
+    #timeouts = new Map()
 
     set(key, value, duration) {
         const hasKey = this.#keys.has(key);
@@ -9,14 +10,15 @@ class TimeLimitedCache {
         this.#keys.set(key, value);
 
         if (hasKey) {
-            // Перезаписать таймаут до его истечения
+            const currentTimeout = this.#timeouts.get(key);
+            clearTimeout(currentTimeout);
         }
 
         const timeoutId = setTimeout(() => {
             this.#keys.delete(key);
-
-            clearTimeout(timeoutId);
         }, duration)
+
+        this.#timeouts.set(key, timeoutId);
 
         return !!hasKey;
     }

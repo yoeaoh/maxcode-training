@@ -2,9 +2,9 @@
 
 // Тут не понял, в тестах пишет cb is not a function
 function promisify(fn) {
-    return function(a, b) {
+    return function(...args) {
         return new Promise((resolve, reject) => {
-            fn(a, b, (err, result) => {
+            fn(...args, (err, result) => {
                 if (err === null) {
                     resolve(result);
                 } else {

@@ -2,20 +2,35 @@
 
 // Мне не нравится решение, но я не смог придумать, как обойтись без Promise.all и без флета в конце
 async function flatten(aa) {
-    return new Promise(resolve => {
-        aa.read().then(elements => {
-            Promise.all(elements.map((element) => {
+    // return new Promise(resolve => {
+        return aa.read().then(elements => {
+            return Promise.all(elements.map((element) => {
                 if (element instanceof AA) {
                     return flatten(element)
                 } else {
                     return Promise.resolve(element);
                 }
             })).then(result => {
-                resolve(result.flat())
+                // resolve(result.flat())
+                return result.flat();
             })
-        })
+        // })
     })
 }
+
+async function flatten(aa) {
+  const promises = [];
+
+  for (const element of await aa.read()) {
+    if (element instanceof AA) {
+      promises.push(flatten(element));
+    } else {
+      promises.push(element);
+    }
+  }
+  return Promise.all(promises).then(result => result.flat())
+}
+
 
 class AA {
     #array;

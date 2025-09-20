@@ -23,7 +23,7 @@ async function cube(x) {
 async function compute(x) {
     try {
         const doubledX = await double(x);
-        return cube(doubledX)
+        return await cube(doubledX)
     } catch (e) {
         throw "Error while computing";
     }

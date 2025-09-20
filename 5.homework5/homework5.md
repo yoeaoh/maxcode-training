@@ -42,7 +42,7 @@
 - [x] [28. Ускоряем асинхронный flatten](28.boost-async-flatten.js)
 
 ## Callbacks
-- [attempted] [29. Декоратор promisify](29.promisify.js)
+- [x] [29. Декоратор promisify](29.promisify.js)
 - [ ] [maybe skip / just quick try] [30. Декоратор callbackify](30.callbackify.js)
 - [attempted] [31. Compose на колбэках](31.compose-callback.js)
 
@@ -51,8 +51,21 @@
 - [ ] [33. Фильтруем товары](33.products.js)
 
 ## Таймеры
-- [attempted] [34. Cache With Time Limit](34.cache.js)
+- [x] [34. Cache With Time Limit](34.cache.js)
 - [ ] [35. Декоратор debounce](35.debounce.js)
 - [ ] [36. Декоратор throttle](36.throttle.js)
 - [ ] [37. Простой Rate Limiter](37.simple-rate-limiter.js)
 - [ ] [38. Rate Limiter](38.rate-limiter.js)
+
+17:30 vtornik
+
+Promise with Fallback
+Асинхронная мемоизация с TTL
+Асинхронная очередь
+Асинхронные покупатели
+? Фильтруем товары
+Декоратор debounce
+Декоратор throttle
+Rate Limiter
+Анимация через JavaScript
+requestAnimationFrame в Event Loop

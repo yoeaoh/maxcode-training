@@ -42,7 +42,7 @@
 - [x] [28. Ускоряем асинхронный flatten](28.boost-async-flatten.js)
 
 ## Callbacks
-- [ ] [29. Декоратор promisify](29.promisify.js)
+- [attempted] [29. Декоратор promisify](29.promisify.js)
 - [ ] [maybe skip / just quick try] [30. Декоратор callbackify](30.callbackify.js)
 - [ ] [31. Compose на колбэках](31.compose-callback.js)
 
